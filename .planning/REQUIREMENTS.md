@@ -95,13 +95,46 @@ Which phases cover which requirements. Populated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (filled by roadmapper) | | |
+| MODE-01 | Phase 2 | Pending |
+| MODE-02 | Phase 2 | Pending |
+| MODE-03 | Phase 2 | Pending |
+| MODE-04 | Phase 2 | Pending |
+| MODE-05 | Phase 2 | Pending |
+| A11Y-01 | Phase 3 | Pending |
+| A11Y-02 | Phase 3 | Pending |
+| A11Y-03 | Phase 3 | Pending |
+| A11Y-04 | Phase 3 | Pending |
+| A11Y-05 | Phase 3 | Pending |
+| A11Y-06 | Phase 3 | Pending |
+| A11Y-07 | Phase 3 | Pending |
+| A11Y-08 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Pending |
+| CONT-02 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Pending |
+| CONT-05 | Phase 3 | Pending |
+| CONT-06 | Phase 3 | Pending |
+| CONT-07 | Phase 3 | Pending |
+| DS-01 | Phase 2 | Pending |
+| DS-02 | Phase 2 | Pending |
+| PREM-01 | Phase 4 | Pending |
+| PREM-02 | Phase 4 | Pending |
+| PREM-03 | Phase 3 | Pending |
+| PREM-04 | Phase 4 | Pending |
+| DEPLOY-01 | Phase 1 | Pending |
+| DEPLOY-02 | Phase 1 | Pending |
+| DEPLOY-03 | Phase 1 | Pending |
+| DEPLOY-04 | Phase 5 | Pending |
+| SEO-01 | Phase 5 | Pending |
+| QA-01 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total
-- Mapped to phases: (pending roadmap)
-- Unmapped: (pending roadmap)
+- v1 requirements: 32 total (enumerated; the earlier "30" figure undercounted — A11Y has 8 and CONT has 7, and SEO-01/QA-01 are two distinct reqs)
+- Mapped to phases: 32/32 (100%)
+- Unmapped: 0
+
+**Per-phase counts:** Phase 1 = 3, Phase 2 = 7, Phase 3 = 16, Phase 4 = 3, Phase 5 = 3.
 
 ---
 *Requirements defined: 2026-07-04*
-*Last updated: 2026-07-04 after initial definition*
+*Last updated: 2026-07-04 after roadmap creation (traceability mapped, 32 v1 requirements)*
