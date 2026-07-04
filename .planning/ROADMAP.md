@@ -39,10 +39,11 @@ base-path-correct hosting before any content or features exist.
   2. A hard-refresh on a deep route on the deployed site resolves via the `404.html` SPA fallback instead of GitHub's generic 404, and `.nojekyll` keeps `_app/` from being dropped.
   3. Pushing to the repo triggers a GitHub Actions workflow that builds with pnpm (pinned Node 24) and auto-deploys to Pages, injecting `BASE_PATH` from the repo name.
   4. The build completes fully static via `adapter-static` with the correct `paths.base` and an explicit `trailingSlash` policy — no hardcoded leading-slash paths.
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD (refined during planning)
+- [ ] 01-01-scaffold-static-config-ci-PLAN.md — Scaffold minimal static SvelteKit app, wire base-path/.nojekyll/404 config, author pnpm Pages deploy workflow, prove build locally (wave 1)
+- [ ] 01-02-remote-deploy-live-proof-PLAN.md — Rename to main, create public wolfwdavid remote, enable Pages, verify hello-world live under base path (wave 2)
 
 ### Phase 2: Mode System & Design Tokens
 **Goal**: The dual-mode engine works end to end — a persistent, screen-reader-friendly toggle
