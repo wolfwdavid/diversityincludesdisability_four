@@ -50,9 +50,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Build & Deploy
 
-- [ ] **DEPLOY-01**: The site builds fully static via `adapter-static` with all routes prerendered and correct `paths.base` for the `/diversityincludesdisability_four` subpath
-- [ ] **DEPLOY-02**: Deploy artifacts include `static/.nojekyll` and a `404.html` SPA fallback so `_app/` assets and deep links resolve on GitHub Pages
-- [ ] **DEPLOY-03**: A GitHub Actions workflow builds with pnpm and deploys to GitHub Pages (`upload-pages-artifact` + `deploy-pages`), injecting `BASE_PATH` from the repo name
+- [x] **DEPLOY-01**: The site builds fully static via `adapter-static` with all routes prerendered and correct `paths.base` for the `/diversityincludesdisability_four` subpath
+- [x] **DEPLOY-02**: Deploy artifacts include `static/.nojekyll` and a `404.html` SPA fallback so `_app/` assets and deep links resolve on GitHub Pages
+- [x] **DEPLOY-03**: A GitHub Actions workflow builds with pnpm and deploys to GitHub Pages (`upload-pages-artifact` + `deploy-pages`), injecting `BASE_PATH` from the repo name
 - [ ] **DEPLOY-04**: The deployed site is verified live under the base path (links, images, `_app/immutable` chunks all resolve) — proven with a real Pages deploy, not just local preview
 
 ### Quality Gates (SEO & CI)
@@ -121,9 +121,9 @@ Which phases cover which requirements. Populated during roadmap creation.
 | PREM-02 | Phase 4 | Pending |
 | PREM-03 | Phase 3 | Pending |
 | PREM-04 | Phase 4 | Pending |
-| DEPLOY-01 | Phase 1 | Pending |
-| DEPLOY-02 | Phase 1 | Pending |
-| DEPLOY-03 | Phase 1 | Pending |
+| DEPLOY-01 | Phase 1 | Complete |
+| DEPLOY-02 | Phase 1 | Complete |
+| DEPLOY-03 | Phase 1 | Complete |
 | DEPLOY-04 | Phase 5 | Pending |
 | SEO-01 | Phase 5 | Pending |
 | QA-01 | Phase 5 | Pending |
