@@ -1,0 +1,74 @@
+:root {
+  /* spacing / radius / motion — shared */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
+  --dur:200ms; --ease:cubic-bezier(.2,.7,.2,1);
+  --focus-width:3px; --focus-offset:2px;
+  --font-heading:"Lexend",system-ui,sans-serif;
+  --font-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  --measure:68ch;
+}
+
+[data-mode="accessible"] {
+  color-scheme: light;
+  --bg:#FFFFFF; --surface:#F8FAFC; --border:#D6DEE8;
+  --text:#111111; --text-muted:#404A56;
+  --primary:#0A4E8B; --primary-hover:#08427A; --on-primary:#FFFFFF;
+  --accent:#9A3412; --on-accent:#FFFFFF;
+  --focus-ring:#08427A;
+  --shadow:0 1px 2px rgba(16,24,40,.08);
+  --glow:none;
+  --fs-base:1.125rem; --lh-body:1.7; --lh-heading:1.2;
+  --fs-h1:2.75rem; --fs-h2:2rem; --fs-h3:1.5rem; --fs-lg:1.375rem; --fs-sm:1rem;
+}
+
+[data-mode="premium"] {
+  color-scheme: dark;
+  --bg:#0A0E14; --surface:rgba(20,27,38,.72); --border:rgba(120,140,170,.22);
+  --text:#E6EDF5; --text-secondary:#C3CEDC; --text-muted:#9AA7B8;
+  --primary:#6FB4FF; --primary-solid:#4DA3FF; --on-primary:#0A0E14;
+  --accent:#FF9E5E; --on-accent:#0A0E14;
+  --focus-ring:#6FB4FF;
+  --shadow:0 8px 32px rgba(0,0,0,.45);
+  --glow:0 0 24px rgba(111,180,255,.35);
+  --fs-base:1rem; --lh-body:1.6; --lh-heading:1.15;
+  --fs-h1:clamp(2.5rem,6vw,4rem); --fs-h2:2.25rem; --fs-h3:1.5rem; --fs-lg:1.25rem; --fs-sm:.875rem;
+}
+
+*:focus-visible {
+  outline:var(--focus-width) solid var(--focus-ring);
+  outline-offset:var(--focus-offset);
+  border-radius:2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  :root{ --dur:0ms; }
+  *,*::before,*::after{ animation-duration:0ms!important; animation-iteration-count:1!important; transition-duration:0ms!important; scroll-behavior:auto!important; }
+}
+
+/* --- companion base (append below the UI-SPEC verbatim block) --- */
+html { color-scheme: light; }
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: var(--fs-base);
+	line-height: var(--lh-body);
+	-webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-heading); line-height: var(--lh-heading); }
+
+/* clip-rect visually-hidden — stays in the a11y tree (NOT display:none) */
+.visually-hidden {
+	position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+	overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* skip link (fuller version is Phase 3; token-correct focus here) */
+.skip-link {
+	position: absolute; left: var(--space-3); top: -100%;
+	background: var(--surface); color: var(--text);
+	padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); z-index: 100;
+}
+.skip-link:focus { top: var(--space-3); }
