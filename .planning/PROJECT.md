@@ -76,6 +76,10 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 | adapter-static + base path for gh-pages | Only viable path for GitHub Pages hosting of SvelteKit | — Pending |
 | Accessible mode ships zero 3D (lazy-load Premium) | Accessibility + performance; WebGL is opt-in | — Pending |
 | Auto-select Accessible on `prefers-reduced-motion`/`prefers-contrast` | Respect OS-level accessibility signals by default | — Pending |
+| Premium aesthetic = "Luminous depth" (dark #0a0e14, blue/orange glow, ambient 3D, glass cards) | Modern/premium without being loud; reduced-motion strips animation | — Pending |
+| Accessible aesthetic = flat white/#111, AAA contrast, no motion (scope.org.uk-like) | Gold-standard, first-class baseline | — Pending |
+| Brand palette = DID blue + orange, AAA-safe pairs derived per mode | Preserve org identity (matches grant-tracker work) | — Pending |
+| Deploy foundation shipped: base-path/.nojekyll/404/CI proven live | De-risk the #1 launch-killer before content | ✓ Good (Phase 1) |
 
 ## Evolution
 
