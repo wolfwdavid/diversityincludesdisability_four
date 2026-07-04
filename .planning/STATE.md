@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-02-engine-core-tokens-app-html-store-PLAN.md
-last_updated: "2026-07-04T22:30:28.756Z"
+stopped_at: Completed 02-03-toggle-layout-and-integration-verify-PLAN.md
+last_updated: "2026-07-04T23:42:55.597Z"
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -50,6 +50,7 @@ Plan: 3 of 3
 | Phase 01-foundation-deploy-proof P02 | 3 | 2 tasks | 0 files |
 | Phase 02 P01 | 8 | 3 tasks | 10 files |
 | Phase 02 P02 | 4 | 3 tasks | 3 files |
+| Phase 02 P03 | 68 | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 02]: axe suite includes wcag2aaa tag so color-contrast-enhanced machine-verifies the DS-01 AAA (>=7:1) claim
 - [Phase 02]: Mode store initializes current FROM html data-mode attribute — inline script is the single owner of priority (stored → OS → default), so the store cannot disagree (no hydration re-flip)
 - [Phase 02]: Static data-mode=accessible on <html> guarantees a themed gold-standard render with JS disabled; the inline script upgrades capable browsers pre-paint
+- [Phase 02]: e2e runs against the adapter-static preview build (pnpm build && pnpm preview), not the dev server — reliable hydration and exercises the shipped artifact
+- [Phase 02]: app.html no-flash comment must not contain %sveltekit.* placeholders — SvelteKit substitutes them inside comments too, corrupting head injection
 
 ### Pending Todos
 
@@ -82,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T22:30:10.449Z
-Stopped at: Completed 02-02-engine-core-tokens-app-html-store-PLAN.md
+Last session: 2026-07-04T23:42:24.851Z
+Stopped at: Completed 02-03-toggle-layout-and-integration-verify-PLAN.md
 Resume file: None
