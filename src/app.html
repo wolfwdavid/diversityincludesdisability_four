@@ -3,18 +3,23 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- No-flash: runs synchronously BEFORE %sveltekit.head% stylesheets. Survives prerender verbatim. -->
+		<!-- No-flash: runs synchronously before the SvelteKit head/stylesheets are parsed. Survives prerender verbatim. -->
 		<script>
 			try {
-				var k = 'did-mode', s = localStorage.getItem(k), m;
-				if (s === 'accessible' || s === 'premium') { m = s; }
-				else {
+				var k = 'did-mode',
+					s = localStorage.getItem(k),
+					m;
+				if (s === 'accessible' || s === 'premium') {
+					m = s;
+				} else {
 					var rm = matchMedia('(prefers-reduced-motion: reduce)').matches,
 						hc = matchMedia('(prefers-contrast: more)').matches;
-					m = (rm || hc) ? 'accessible' : 'premium';
+					m = rm || hc ? 'accessible' : 'premium';
 				}
 				document.documentElement.dataset.mode = m;
-			} catch (e) { document.documentElement.dataset.mode = 'accessible'; }
+			} catch (e) {
+				document.documentElement.dataset.mode = 'accessible';
+			}
 		</script>
 		%sveltekit.head%
 	</head>

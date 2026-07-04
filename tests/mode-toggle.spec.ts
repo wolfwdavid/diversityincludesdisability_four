@@ -1,10 +1,19 @@
 import { test, expect } from '@playwright/test';
 
 test('toggle flips data-mode + aria-pressed and persists across reload', async ({ page }) => {
-	await page.addInitScript(() => localStorage.setItem('did-mode', 'accessible'));
+	// Seed the starting choice ONCE. addInitScript re-runs on every navigation (including the
+	// reload below), so guard it — otherwise the reload would clobber the value whose
+	// persistence this test is asserting.
+	await page.addInitScript(() => {
+		if (!localStorage.getItem('did-mode')) localStorage.setItem('did-mode', 'accessible');
+	});
 	await page.goto('/');
 	const html = page.locator('html');
 	const toggle = page.getByRole('button', { name: /visual mode/i });
+
+	// Wait for client hydration so the toggle's handler is attached before we interact.
+	// (A real user cannot click within milliseconds of load; this removes the harness-only race.)
+	await expect(html).toHaveAttribute('data-hydrated', 'true');
 
 	await expect(html).toHaveAttribute('data-mode', 'accessible');
 	await expect(toggle).toHaveAttribute('aria-pressed', 'false');
@@ -27,8 +36,17 @@ test('toggle flips data-mode + aria-pressed and persists across reload', async (
 test('switch announces via polite live region and preserves focus + scroll (MODE-05)', async ({
 	page
 }) => {
+	// Seed a deterministic starting mode (accessible) so the switch direction (→ premium) is
+	// stable regardless of the runner's ambient prefers-reduced-motion / prefers-contrast
+	// defaults, which otherwise decide the no-stored-choice default mode.
+	await page.addInitScript(() => {
+		if (!localStorage.getItem('did-mode')) localStorage.setItem('did-mode', 'accessible');
+	});
 	await page.goto('/');
 	const toggle = page.getByRole('button', { name: /visual mode/i });
+
+	// Wait for client hydration so the toggle's handler is attached before we interact.
+	await expect(page.locator('html')).toHaveAttribute('data-hydrated', 'true');
 
 	// Focus the toggle, then capture focus identity + scroll BEFORE the switch.
 	// The toggle is the only [aria-pressed] button, so element-identity is a stable

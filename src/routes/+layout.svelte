@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { mode } from '$lib/stores/mode.svelte';
 	import ModeToggle from '$lib/components/shell/ModeToggle.svelte';
 	import favicon from '$lib/assets/favicon.svg';
@@ -22,9 +22,15 @@
 
 	let { children } = $props();
 
+	// Hydration signal: on a prerendered static SPA the header button exists in the HTML before
+	// its click handler is attached. Marking the root once the client mounts lets e2e (and any
+	// consumer) wait for real interactivity instead of racing hydration. Set inside the $effect
+	// below so it only runs in the browser after mount.
+
 	// MODE-04 live OS change — only auto-flip when the user has made NO explicit choice.
 	$effect(() => {
 		if (!browser) return;
+		document.documentElement.dataset.hydrated = 'true';
 		const rm = matchMedia('(prefers-reduced-motion: reduce)');
 		const hc = matchMedia('(prefers-contrast: more)');
 		const onChange = () => {
@@ -41,6 +47,7 @@
 </script>
 
 <svelte:head>
+	<title>Diversity Includes Disability</title>
 	<link rel="icon" href={favicon} />
 	<link rel="preload" href={lexend700} as="font" type="font/woff2" crossorigin="anonymous" />
 	<link rel="preload" href={bodySans400} as="font" type="font/woff2" crossorigin="anonymous" />
@@ -49,7 +56,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
-	<a class="brand" href="{base}/">Diversity Includes Disability</a>
+	<a class="brand" href={resolve('/')}>Diversity Includes Disability</a>
 	<ModeToggle />
 </header>
 

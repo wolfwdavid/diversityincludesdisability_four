@@ -1,0 +1,12 @@
+# Package managers
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build output & generated
+.svelte-kit/
+build/
+node_modules/
+
+# Planning artifacts (authored prose, not source)
+.planning/

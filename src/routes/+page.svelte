@@ -8,8 +8,8 @@
 	the header to switch. Your choice is remembered.
 </p>
 <p>
-	This page is intentionally minimal: Phase 2 proves the mode engine and token contract. Full content
-	arrives in Phase 3.
+	This page is intentionally minimal: Phase 2 proves the mode engine and token contract. Full
+	content arrives in Phase 3.
 </p>
 
 <style>
