@@ -21,7 +21,7 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Deploys to GitHub Pages under base path `/diversityincludesdisability_four` — Phase 1 (live at https://wolfwdavid.github.io/diversityincludesdisability_four/, `.nojekyll` + 404 SPA fallback + CI deploy proven)
 
 ### Active
 
@@ -34,7 +34,6 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 - [ ] Services detail: Trainings & Facilitation, Consulting, Modeling for Representation, Speaking/Panels
 - [ ] "Let's Connect" contact CTA (email emanrimawi@gmail.com) + social links (Facebook, Twitter/X, LinkedIn, Instagram)
 - [ ] Responsive (mobile-first) and fast; static build
-- [ ] Deploys to GitHub Pages under base path `/diversityincludesdisability_four`
 
 ### Out of Scope
 
