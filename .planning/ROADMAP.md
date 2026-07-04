@@ -43,7 +43,7 @@ base-path-correct hosting before any content or features exist.
 
 Plans:
 - [x] 01-01-scaffold-static-config-ci-PLAN.md — Scaffold minimal static SvelteKit app, wire base-path/.nojekyll/404 config, author pnpm Pages deploy workflow, prove build locally (wave 1)
-- [ ] 01-02-remote-deploy-live-proof-PLAN.md — Rename to main, create public wolfwdavid remote, enable Pages, verify hello-world live under base path (wave 2)
+- [x] 01-02-remote-deploy-live-proof-PLAN.md — Rename to main, create public wolfwdavid remote, enable Pages, verify hello-world live under base path (wave 2)
 
 ### Phase 2: Mode System & Design Tokens
 **Goal**: The dual-mode engine works end to end — a persistent, screen-reader-friendly toggle
