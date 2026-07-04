@@ -10,9 +10,9 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Mode System
 
 - [ ] **MODE-01**: Visitor can toggle between "Premium 3D" and "Accessible" modes via a native, keyboard-operable control (`<button aria-pressed>`) present in the header on every page
-- [ ] **MODE-02**: The chosen mode persists across pages and return visits (localStorage), applied via a `data-mode` attribute on `<html>`
-- [ ] **MODE-03**: Mode is applied before first paint with no flash of the wrong mode (render-blocking inline head script reads stored choice / OS signal)
-- [ ] **MODE-04**: When no explicit choice is stored, Accessible mode is auto-selected if the OS signals `prefers-reduced-motion: reduce` or `prefers-contrast: more`
+- [x] **MODE-02**: The chosen mode persists across pages and return visits (localStorage), applied via a `data-mode` attribute on `<html>`
+- [x] **MODE-03**: Mode is applied before first paint with no flash of the wrong mode (render-blocking inline head script reads stored choice / OS signal)
+- [x] **MODE-04**: When no explicit choice is stored, Accessible mode is auto-selected if the OS signals `prefers-reduced-motion: reduce` or `prefers-contrast: more`
 - [ ] **MODE-05**: Switching mode announces the change to assistive tech via a polite live region and preserves scroll position and focus (attribute flip, not navigation)
 
 ### Accessibility
@@ -38,8 +38,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Design System
 
-- [ ] **DS-01**: A CSS custom-property token contract defines both modes' color/type/spacing, with WCAG-AAA-verified contrast pairs for the DID blue/orange palette
-- [ ] **DS-02**: Modes differ almost entirely through tokens/CSS driven by `data-mode` (not duplicated markup), keeping one auditable accessible DOM
+- [x] **DS-01**: A CSS custom-property token contract defines both modes' color/type/spacing, with WCAG-AAA-verified contrast pairs for the DID blue/orange palette
+- [x] **DS-02**: Modes differ almost entirely through tokens/CSS driven by `data-mode` (not duplicated markup), keeping one auditable accessible DOM
 
 ### Premium 3D
 
@@ -96,9 +96,9 @@ Which phases cover which requirements. Populated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | MODE-01 | Phase 2 | Pending |
-| MODE-02 | Phase 2 | Pending |
-| MODE-03 | Phase 2 | Pending |
-| MODE-04 | Phase 2 | Pending |
+| MODE-02 | Phase 2 | Complete |
+| MODE-03 | Phase 2 | Complete |
+| MODE-04 | Phase 2 | Complete |
 | MODE-05 | Phase 2 | Pending |
 | A11Y-01 | Phase 3 | Pending |
 | A11Y-02 | Phase 3 | Pending |
@@ -115,8 +115,8 @@ Which phases cover which requirements. Populated during roadmap creation.
 | CONT-05 | Phase 3 | Pending |
 | CONT-06 | Phase 3 | Pending |
 | CONT-07 | Phase 3 | Pending |
-| DS-01 | Phase 2 | Pending |
-| DS-02 | Phase 2 | Pending |
+| DS-01 | Phase 2 | Complete |
+| DS-02 | Phase 2 | Complete |
 | PREM-01 | Phase 4 | Pending |
 | PREM-02 | Phase 4 | Pending |
 | PREM-03 | Phase 3 | Pending |

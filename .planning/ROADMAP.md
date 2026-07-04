@@ -61,7 +61,7 @@ custom-property token contract with auditable contrast pairs.
 
 Plans:
 - [x] 02-01-test-toolchain-and-validation-harness-PLAN.md — Install fonts + Playwright/axe/eslint toolchain, author playwright.config + eslint config + raw-hex gate + the 4 VALIDATION specs (wave 1)
-- [ ] 02-02-engine-core-tokens-app-html-store-PLAN.md — Verbatim AAA token contract, pre-paint no-flash script + JS-disabled fallback, Svelte 5 rune mode store (wave 2)
+- [x] 02-02-engine-core-tokens-app-html-store-PLAN.md — Verbatim AAA token contract, pre-paint no-flash script + JS-disabled fallback, Svelte 5 rune mode store (wave 2)
 - [ ] 02-03-toggle-layout-and-integration-verify-PLAN.md — Native ModeToggle, layout header + self-hosted fonts + aria-live announcer + OS listener, restyle home, drive full suite green (wave 3)
 
 ### Phase 3: Accessible Experience

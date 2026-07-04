@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-01-test-toolchain-and-validation-harness-PLAN.md
-last_updated: "2026-07-04T22:23:07.499Z"
+stopped_at: Completed 02-02-engine-core-tokens-app-html-store-PLAN.md
+last_updated: "2026-07-04T22:30:28.756Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 5
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 02 (mode-system-design-tokens) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: 2 of 3
 | Phase 01-foundation-deploy-proof P01 | 12 | 3 tasks | 20 files |
 | Phase 01-foundation-deploy-proof P02 | 3 | 2 tasks | 0 files |
 | Phase 02 P01 | 8 | 3 tasks | 10 files |
+| Phase 02 P02 | 4 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-deploy-proof]: Live deploy proven on real GitHub Pages: wolfwdavid/diversityincludesdisability_four public repo, Pages source=GitHub Actions, root 200 + _app chunk 200 + 404.html SPA fallback all validated under the base path
 - [Phase 02]: Node raw-hex token gate (scripts/check-no-raw-hex.mjs) replaces bash/rg for Windows/pnpm-shell robustness
 - [Phase 02]: axe suite includes wcag2aaa tag so color-contrast-enhanced machine-verifies the DS-01 AAA (>=7:1) claim
+- [Phase 02]: Mode store initializes current FROM html data-mode attribute — inline script is the single owner of priority (stored → OS → default), so the store cannot disagree (no hydration re-flip)
+- [Phase 02]: Static data-mode=accessible on <html> guarantees a themed gold-standard render with JS disabled; the inline script upgrades capable browsers pre-paint
 
 ### Pending Todos
 
@@ -79,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T22:23:07.496Z
-Stopped at: Completed 02-01-test-toolchain-and-validation-harness-PLAN.md
+Last session: 2026-07-04T22:30:10.449Z
+Stopped at: Completed 02-02-engine-core-tokens-app-html-store-PLAN.md
 Resume file: None
