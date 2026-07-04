@@ -57,10 +57,12 @@ custom-property token contract with auditable contrast pairs.
   3. On a first visit with no stored choice, a visitor whose OS requests `prefers-reduced-motion: reduce` or `prefers-contrast: more` lands in Accessible mode automatically.
   4. The correct mode is applied before first paint via the inline head script — no flash of the wrong mode for photosensitive/vestibular users.
   5. Both modes render from one token contract (`:root[data-mode]`) with WCAG-verified contrast pairs for the DID blue/orange palette (AAA in Accessible), with modes differing through tokens, not duplicated markup.
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD (refined during planning)
+- [ ] 02-01-test-toolchain-and-validation-harness-PLAN.md — Install fonts + Playwright/axe/eslint toolchain, author playwright.config + eslint config + raw-hex gate + the 4 VALIDATION specs (wave 1)
+- [ ] 02-02-engine-core-tokens-app-html-store-PLAN.md — Verbatim AAA token contract, pre-paint no-flash script + JS-disabled fallback, Svelte 5 rune mode store (wave 2)
+- [ ] 02-03-toggle-layout-and-integration-verify-PLAN.md — Native ModeToggle, layout header + self-hosted fonts + aria-live announcer + OS listener, restyle home, drive full suite green (wave 3)
 
 ### Phase 3: Accessible Experience
 **Goal**: The complete site — all four pages with faithful DID content — is fully usable,
