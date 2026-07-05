@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Diversity Includes Disability">
+	<!-- Brand OG card. Colors are the accessible-mode design tokens (tokens.css) used verbatim:
+	     --bg #ffffff, --text #111111, --text-muted #404a56, --primary #0a4e8b, --accent #9a3412.
+	     Self-contained: no external fonts/images. system-ui fallback rasterizes once via
+	     scripts/gen-og-image.mjs. Text is org name + verified tagline only — no invented claims. -->
+	<rect width="1200" height="630" fill="#ffffff" />
+
+	<!-- Left brand rule (primary) with an accent tick -->
+	<rect x="0" y="0" width="24" height="630" fill="#0a4e8b" />
+	<rect x="24" y="0" width="8" height="630" fill="#9a3412" />
+
+	<!-- Top eyebrow band -->
+	<g font-family="Lexend, system-ui, -apple-system, Segoe UI, sans-serif">
+		<text x="96" y="150" font-size="30" font-weight="600" letter-spacing="6" fill="#0a4e8b">DISABILITY EQUITY &amp; INCLUSION</text>
+
+		<!-- Wordmark, stacked for impact -->
+		<text x="94" y="270" font-size="96" font-weight="800" fill="#111111">Diversity</text>
+		<text x="94" y="378" font-size="96" font-weight="800" fill="#111111">Includes</text>
+		<text x="94" y="486" font-size="96" font-weight="800" fill="#9a3412">Disability</text>
+
+		<!-- Subhead / tagline (verified copy) -->
+		<text x="96" y="560" font-size="30" font-weight="400" fill="#404a56">Intersectional disability equity, inclusion, and representation.</text>
+	</g>
+
+	<!-- Accent underline beneath the wordmark -->
+	<rect x="96" y="512" width="220" height="8" rx="4" fill="#0a4e8b" />
+</svg>
