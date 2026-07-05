@@ -28,9 +28,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content & Pages
 
-- [ ] **CONT-01**: Home page presents hero, mission statement, the 4 services overview, founder credibility, and a "Let's Connect" CTA
+- [x] **CONT-01**: Home page presents hero, mission statement, the 4 services overview, founder credibility, and a "Let's Connect" CTA
 - [x] **CONT-02**: About page tells Eman Rimawi's story and intersectional disability-equity work
-- [ ] **CONT-03**: Services are presented (Trainings & Facilitation, Disability Consulting, Modeling for Representation, Speaking/Panels), each with a clear description
+- [x] **CONT-03**: Services are presented (Trainings & Facilitation, Disability Consulting, Modeling for Representation, Speaking/Panels), each with a clear description
 - [x] **CONT-04**: A "Let's Connect" contact section provides a labeled `mailto:` to emanrimawi@gmail.com as the primary contact method (no backend)
 - [x] **CONT-05**: Social links (Facebook, Twitter/X, LinkedIn, Instagram) are present with accessible names, as static links (no live-feed widgets)
 - [x] **CONT-06**: All site copy comes from a single content source module consumed by both modes (no forked/duplicated content)
@@ -108,9 +108,9 @@ Which phases cover which requirements. Populated during roadmap creation.
 | A11Y-06 | Phase 3 | Complete |
 | A11Y-07 | Phase 3 | Complete |
 | A11Y-08 | Phase 3 | Complete |
-| CONT-01 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Complete |
 | CONT-02 | Phase 3 | Complete |
-| CONT-03 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Complete |
 | CONT-04 | Phase 3 | Complete |
 | CONT-05 | Phase 3 | Complete |
 | CONT-06 | Phase 3 | Complete |

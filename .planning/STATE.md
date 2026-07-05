@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-06-PLAN.md (about/contact/accessibility routes)
-last_updated: "2026-07-05T01:49:08.471Z"
+stopped_at: Completed 03-05-PLAN.md (home-and-services-routes)
+last_updated: "2026-07-05T02:04:34.267Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 12
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 03 (accessible-experience) — EXECUTING
-Plan: 3 of 7
+Plan: 4 of 7
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Plan: 3 of 7
 | Phase 03 P04 | 3 | 2 tasks | 2 files |
 | Phase 03 P03 | 29min | 3 tasks | 5 files |
 | Phase 03 P06 | 7min | 3 tasks | 4 files |
+| Phase 03 P05 | 20 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-03: mobile nav Escape handler lives on the wrapper enclosing both toggle button and nav (button sits outside <nav> when focused after open)
 - [Phase 03]: 03-03: aria-current via page.route.id from $app/state (base/slash-independent), omitted on inactive links; every internal link via resolve()
 - [Phase 03]: Contact CTA is a labeled mailto button with the address shown as visible text; Accessibility Statement honestly lists pending [REVIEW] items as known issues
+- [Phase 03]: 03-05: ServiceCard heading level chosen per page (level=3 on Home under an h2, level=2 on Services under the h1) to keep heading order monotonic
+- [Phase 03]: 03-05: multi-CTA pages assert visibility with .first() in e2e — a page may legitimately repeat a labelled CTA (Let's Connect appears in hero, each card, and the CTA band)
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T01:49:08.279Z
-Stopped at: Completed 03-06-PLAN.md (about/contact/accessibility routes)
+Last session: 2026-07-05T02:03:51.205Z
+Stopped at: Completed 03-05-PLAN.md (home-and-services-routes)
 Resume file: None
