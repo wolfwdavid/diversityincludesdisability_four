@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Accessibility
 
-- [ ] **A11Y-01**: Every page exposes visible-on-focus skip links (skip to main content, skip to navigation)
-- [ ] **A11Y-02**: All content is delivered in one semantic DOM with correct landmarks (header/nav/main/footer), heading hierarchy, and accessible names — identical structure in both modes
+- [x] **A11Y-01**: Every page exposes visible-on-focus skip links (skip to main content, skip to navigation)
+- [x] **A11Y-02**: All content is delivered in one semantic DOM with correct landmarks (header/nav/main/footer), heading hierarchy, and accessible names — identical structure in both modes
 - [x] **A11Y-03**: Accessible mode meets WCAG 2.2 AA, targeting AAA contrast (≥7:1 body text) and larger base type; verified by automated axe scans with zero violations
-- [ ] **A11Y-04**: All interactive elements have a clearly visible `:focus-visible` indicator meeting WCAG 2.2 focus-appearance, and interactive targets are ≥24×24px (SC 2.5.8)
-- [ ] **A11Y-05**: The entire site is operable by keyboard alone with a logical tab order and no keyboard traps (including any decorative 3D, which is removed from tab order and hidden from screen readers)
+- [x] **A11Y-04**: All interactive elements have a clearly visible `:focus-visible` indicator meeting WCAG 2.2 focus-appearance, and interactive targets are ≥24×24px (SC 2.5.8)
+- [x] **A11Y-05**: The entire site is operable by keyboard alone with a logical tab order and no keyboard traps (including any decorative 3D, which is removed from tab order and hidden from screen readers)
 - [x] **A11Y-06**: All non-text content has appropriate text alternatives (alt text / `aria-hidden` for decorative), and no information is conveyed by color alone
 - [ ] **A11Y-07**: A public Accessibility Statement page documents conformance target, known issues, feedback path, and review cadence (scope.org.uk pattern)
 - [x] **A11Y-08**: No motion plays when `prefers-reduced-motion: reduce` is set, in either mode; Premium motion is opt-in and pausable
@@ -32,9 +32,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CONT-02**: About page tells Eman Rimawi's story and intersectional disability-equity work
 - [ ] **CONT-03**: Services are presented (Trainings & Facilitation, Disability Consulting, Modeling for Representation, Speaking/Panels), each with a clear description
 - [ ] **CONT-04**: A "Let's Connect" contact section provides a labeled `mailto:` to emanrimawi@gmail.com as the primary contact method (no backend)
-- [ ] **CONT-05**: Social links (Facebook, Twitter/X, LinkedIn, Instagram) are present with accessible names, as static links (no live-feed widgets)
+- [x] **CONT-05**: Social links (Facebook, Twitter/X, LinkedIn, Instagram) are present with accessible names, as static links (no live-feed widgets)
 - [x] **CONT-06**: All site copy comes from a single content source module consumed by both modes (no forked/duplicated content)
-- [ ] **CONT-07**: Layout is responsive and mobile-first across common breakpoints
+- [x] **CONT-07**: Layout is responsive and mobile-first across common breakpoints
 
 ### Design System
 
@@ -100,11 +100,11 @@ Which phases cover which requirements. Populated during roadmap creation.
 | MODE-03 | Phase 2 | Complete |
 | MODE-04 | Phase 2 | Complete |
 | MODE-05 | Phase 2 | Complete |
-| A11Y-01 | Phase 3 | Pending |
-| A11Y-02 | Phase 3 | Pending |
+| A11Y-01 | Phase 3 | Complete |
+| A11Y-02 | Phase 3 | Complete |
 | A11Y-03 | Phase 3 | Complete |
-| A11Y-04 | Phase 3 | Pending |
-| A11Y-05 | Phase 3 | Pending |
+| A11Y-04 | Phase 3 | Complete |
+| A11Y-05 | Phase 3 | Complete |
 | A11Y-06 | Phase 3 | Complete |
 | A11Y-07 | Phase 3 | Pending |
 | A11Y-08 | Phase 3 | Complete |
@@ -112,9 +112,9 @@ Which phases cover which requirements. Populated during roadmap creation.
 | CONT-02 | Phase 3 | Pending |
 | CONT-03 | Phase 3 | Pending |
 | CONT-04 | Phase 3 | Pending |
-| CONT-05 | Phase 3 | Pending |
+| CONT-05 | Phase 3 | Complete |
 | CONT-06 | Phase 3 | Complete |
-| CONT-07 | Phase 3 | Pending |
+| CONT-07 | Phase 3 | Complete |
 | DS-01 | Phase 2 | Complete |
 | DS-02 | Phase 2 | Complete |
 | PREM-01 | Phase 4 | Pending |

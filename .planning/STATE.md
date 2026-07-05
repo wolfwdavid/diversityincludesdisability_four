@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-04-PLAN.md
-last_updated: "2026-07-05T01:09:53.840Z"
+stopped_at: Completed 03-03-PLAN.md (site-shell)
+last_updated: "2026-07-05T01:37:52.031Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 12
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -54,6 +54,7 @@ Plan: 3 of 7
 | Phase 03 P02 | 4.5 | 2 tasks | 8 files |
 | Phase 03 P01 | 7min | 3 tasks | 9 files |
 | Phase 03 P04 | 3 | 2 tasks | 2 files |
+| Phase 03 P03 | 29min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Social hrefs are '#' placeholders and about.pullQuote is undefined until real values confirmed (no invented content)
 - [Phase 03]: Hero poster is abstract/branding -> decorative aria-hidden (over role=img); Phase-4 3D mounts as an absolutely-positioned island over the static poster fallback
 - [Phase 03]: ServiceCard heading level is a prop (svelte:element h${level}) -> h3 on Home, h2 on Services to keep axe heading-order valid
+- [Phase 03]: 03-03: mobile nav Escape handler lives on the wrapper enclosing both toggle button and nav (button sits outside <nav> when focused after open)
+- [Phase 03]: 03-03: aria-current via page.route.id from $app/state (base/slash-independent), omitted on inactive links; every internal link via resolve()
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T01:09:30.279Z
-Stopped at: Completed 03-04-PLAN.md
+Last session: 2026-07-05T01:36:42.569Z
+Stopped at: Completed 03-03-PLAN.md (site-shell)
 Resume file: None
