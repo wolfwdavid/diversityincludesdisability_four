@@ -31,7 +31,7 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 
 ### Active
 
-- [ ] Premium mode: Threlte/Three.js hero + tasteful motion, lazy-loaded so Accessible mode ships zero WebGL — Phase 4
+- ✓ Premium mode: Threlte/Three.js procedural hero (luminous-depth particle field + echo rings), lazy-loaded so Accessible mode ships zero WebGL — Phase 4 (bundle boundary grep-proven, dispose leak-free, context-loss→poster, axe clean both modes, 64/64 e2e)
 - [ ] Home page: hero, mission, the 4 services, founder credibility, "Let's Connect" CTA
 - [ ] About Me page: Eman's story and disability-equity work
 - [ ] Services detail: Trainings & Facilitation, Consulting, Modeling for Representation, Speaking/Panels
