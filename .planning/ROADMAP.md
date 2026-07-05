@@ -76,10 +76,16 @@ pattern), shipping zero WebGL. This is the mission-critical baseline, proven ind
   3. A screen-reader user encounters correct landmarks (header/nav/main/footer), heading hierarchy, alt text (or `aria-hidden` for decorative), and accessible names — identical structure in both modes, with no info conveyed by color alone.
   4. A visitor can read Eman's story, the mission, and all four services, reach a labeled `mailto:emanrimawi@gmail.com` CTA, and use named social links — all from a single content source consumed by both modes, responsive and mobile-first.
   5. A public Accessibility Statement documents the conformance target, known issues, feedback path, and review cadence; no motion plays under reduced-motion; the Accessible hero shows a static poster with no loss of content.
-**Plans**: TBD
+**Plans**: 7 plans
 
 Plans:
-- [ ] 03-01: TBD (refined during planning)
+- [ ] 03-01-content-source-and-gates-PLAN.md — Typed single content source site.ts + content/base-link + review-marker grep gates (wave 1)
+- [ ] 03-02-validation-specs-PLAN.md — Multi-route x multi-mode axe loop + skip-link/heading/target/alt/keyboard/content/responsive specs (wave 1)
+- [ ] 03-03-site-shell-PLAN.md — SkipLinks, SiteHeader (nav + disclosure + aria-current), SocialLinks, SiteFooter, extended layout (wave 2)
+- [ ] 03-04-content-components-PLAN.md — Static poster Hero (PREM-03) + heading-level-adaptive ServiceCard (wave 2)
+- [ ] 03-05-home-and-services-routes-PLAN.md — Home (CONT-01) + Services (CONT-03) routes (wave 3)
+- [ ] 03-06-about-contact-accessibility-routes-PLAN.md — About, Contact (mailto + social), Accessibility Statement (wave 3)
+- [ ] 03-07-integration-verify-PLAN.md — Drive full suite green + human keyboard/screen-reader a11y pass (wave 4)
 
 ### Phase 4: Premium 3D (NEEDS RESEARCH)
 **Goal**: Premium mode adds one tasteful, restrained Threlte/Three.js hero loaded only on
