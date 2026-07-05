@@ -124,7 +124,7 @@ Plans:
 - [x] 05-01-seo-meta-component-and-routes-PLAN.md — Seo.svelte + site.ts url/seo map + per-route <Seo> + head e2e + BASE_PATH build-grep (SEO-01) (wave 1)
 - [x] 05-02-og-image-and-local-fixes-PLAN.md — 1200x630 OG card + deterministic no-flash fix + HeroScene CSS hoist + CI worker cap (SEO-01, follow-ups 2&3) (wave 1)
 - [x] 05-03-lighthouse-budget-and-live-smoke-PLAN.md — lighthouserc.json (a11y>=0.95) + live-smoke.mjs, both proven locally (QA-01, DEPLOY-04) (wave 2)
-- [ ] 05-04-ci-workflow-gate-and-retry-PLAN.md — deploy.yml verify(axe+lhci)->build->deploy(guarded retry)->smoke + check-ci-gate (QA-01, DEPLOY-04, follow-up 1) (wave 3)
+- [x] 05-04-ci-workflow-gate-and-retry-PLAN.md — deploy.yml verify(axe+lhci)->build->deploy(guarded retry)->smoke + check-ci-gate (QA-01, DEPLOY-04, follow-up 1) (wave 3)
 - [ ] 05-05-regression-and-launch-verify-PLAN.md — aggregate test:launch green + push + live CI verify + human launch check (SEO-01, QA-01, DEPLOY-04) (wave 4)
 
 ## Progress
