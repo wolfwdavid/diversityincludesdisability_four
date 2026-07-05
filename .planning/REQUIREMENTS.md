@@ -33,7 +33,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CONT-03**: Services are presented (Trainings & Facilitation, Disability Consulting, Modeling for Representation, Speaking/Panels), each with a clear description
 - [ ] **CONT-04**: A "Let's Connect" contact section provides a labeled `mailto:` to emanrimawi@gmail.com as the primary contact method (no backend)
 - [ ] **CONT-05**: Social links (Facebook, Twitter/X, LinkedIn, Instagram) are present with accessible names, as static links (no live-feed widgets)
-- [ ] **CONT-06**: All site copy comes from a single content source module consumed by both modes (no forked/duplicated content)
+- [x] **CONT-06**: All site copy comes from a single content source module consumed by both modes (no forked/duplicated content)
 - [ ] **CONT-07**: Layout is responsive and mobile-first across common breakpoints
 
 ### Design System
@@ -113,7 +113,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | CONT-03 | Phase 3 | Pending |
 | CONT-04 | Phase 3 | Pending |
 | CONT-05 | Phase 3 | Pending |
-| CONT-06 | Phase 3 | Pending |
+| CONT-06 | Phase 3 | Complete |
 | CONT-07 | Phase 3 | Pending |
 | DS-01 | Phase 2 | Complete |
 | DS-02 | Phase 2 | Complete |

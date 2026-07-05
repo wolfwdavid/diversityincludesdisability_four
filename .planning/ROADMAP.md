@@ -79,7 +79,7 @@ pattern), shipping zero WebGL. This is the mission-critical baseline, proven ind
 **Plans**: 7 plans
 
 Plans:
-- [ ] 03-01-content-source-and-gates-PLAN.md — Typed single content source site.ts + content/base-link + review-marker grep gates (wave 1)
+- [x] 03-01-content-source-and-gates-PLAN.md — Typed single content source site.ts + content/base-link + review-marker grep gates (wave 1)
 - [x] 03-02-validation-specs-PLAN.md — Multi-route x multi-mode axe loop + skip-link/heading/target/alt/keyboard/content/responsive specs (wave 1)
 - [ ] 03-03-site-shell-PLAN.md — SkipLinks, SiteHeader (nav + disclosure + aria-current), SocialLinks, SiteFooter, extended layout (wave 2)
 - [ ] 03-04-content-components-PLAN.md — Static poster Hero (PREM-03) + heading-level-adaptive ServiceCard (wave 2)

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-toggle-layout-and-integration-verify-PLAN.md
-last_updated: "2026-07-05T00:59:53.454Z"
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-07-05T01:03:05.731Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 12
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 03 (accessible-experience) — EXECUTING
-Plan: 1 of 7
+Plan: 2 of 7
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Plan: 1 of 7
 | Phase 02 P02 | 4 | 3 tasks | 3 files |
 | Phase 02 P03 | 68 | 3 tasks | 10 files |
 | Phase 03 P02 | 4.5 | 2 tasks | 8 files |
+| Phase 03 P01 | 7min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Static data-mode=accessible on <html> guarantees a themed gold-standard render with JS disabled; the inline script upgrades capable browsers pre-paint
 - [Phase 02]: e2e runs against the adapter-static preview build (pnpm build && pnpm preview), not the dev server — reliable hydration and exercises the shipped artifact
 - [Phase 02]: app.html no-flash comment must not contain %sveltekit.* placeholders — SvelteKit substitutes them inside comments too, corrupting head injection
+- [Phase 03]: CONT-06 single content source: all copy lives in src/lib/content/site.ts; [REVIEW] markers are TS comments only, enforced by check-review-markers build gate
+- [Phase 03]: Social hrefs are '#' placeholders and about.pullQuote is undefined until real values confirmed (no invented content)
 
 ### Pending Todos
 
@@ -86,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T23:42:24.851Z
-Stopped at: Completed 02-03-toggle-layout-and-integration-verify-PLAN.md
+Last session: 2026-07-05T01:02:40.543Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
