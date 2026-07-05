@@ -13,8 +13,10 @@ test('home (/) renders hero, mission, 4 service cards, a Connect CTA, and no can
 	await expect(page.getByText(/mission/i).first()).toBeVisible();
 	// Exactly four service cards on the home overview.
 	await expect(page.locator('.service-card')).toHaveCount(4);
-	// A "Let's Connect" call to action link.
-	await expect(page.getByRole('link', { name: /let'?s connect/i })).toBeVisible();
+	// A "Let's Connect" call to action link. The Home design surfaces this CTA in several places
+	// (hero, each service card, and the closing CTA band), so assert the first is visible rather
+	// than a single strict match.
+	await expect(page.getByRole('link', { name: /let'?s connect/i }).first()).toBeVisible();
 	// PREM-03: zero WebGL shipped this phase — no <canvas> in the DOM, even in this default mode.
 	await expect(page.locator('canvas')).toHaveCount(0);
 });
