@@ -6,6 +6,12 @@ import { test, expect } from '@playwright/test';
 test('home (/) renders hero, mission, 4 service cards, a Connect CTA, and no canvas (CONT-01, PREM-03)', async ({
 	page
 }) => {
+	// PREM-03 is an ACCESSIBLE-mode guarantee ("the Accessible-first site ships ZERO WebGL"). The
+	// unseeded default now resolves to Premium (app.html: no stored pref + no reduce/contrast signal
+	// → premium), where Phase-4 correctly mounts the decorative 3D island. Seed Accessible so this
+	// zero-canvas assertion tests the contract it names. (Premium's canvas is proven in
+	// tests/premium-3d.spec.ts; the build-time boundary is proven by scripts/check-3d-boundary.mjs.)
+	await page.addInitScript(() => localStorage.setItem('did-mode', 'accessible'));
 	await page.goto('/');
 
 	await expect(page.locator('.hero h1')).toBeVisible();
@@ -17,7 +23,7 @@ test('home (/) renders hero, mission, 4 service cards, a Connect CTA, and no can
 	// (hero, each service card, and the closing CTA band), so assert the first is visible rather
 	// than a single strict match.
 	await expect(page.getByRole('link', { name: /let'?s connect/i }).first()).toBeVisible();
-	// PREM-03: zero WebGL shipped this phase — no <canvas> in the DOM, even in this default mode.
+	// PREM-03: Accessible mode ships zero WebGL — no <canvas> in the DOM.
 	await expect(page.locator('canvas')).toHaveCount(0);
 });
 
