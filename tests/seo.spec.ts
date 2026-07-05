@@ -23,9 +23,18 @@ for (const r of ROUTES) {
 		// base='' in preview → canonical/og:url are origin+path (repo segment is asserted by the build-grep gate)
 		const url = `${SITE_URL}${r.path}`;
 		await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute('href', url);
-		await expect(page.locator('head meta[property="og:type"]')).toHaveAttribute('content', 'website');
-		await expect(page.locator('head meta[property="og:site_name"]')).toHaveAttribute('content', ORG);
-		await expect(page.locator('head meta[property="og:title"]')).toHaveAttribute('content', fullTitle);
+		await expect(page.locator('head meta[property="og:type"]')).toHaveAttribute(
+			'content',
+			'website'
+		);
+		await expect(page.locator('head meta[property="og:site_name"]')).toHaveAttribute(
+			'content',
+			ORG
+		);
+		await expect(page.locator('head meta[property="og:title"]')).toHaveAttribute(
+			'content',
+			fullTitle
+		);
 		await expect(page.locator('head meta[property="og:url"]')).toHaveAttribute('content', url);
 		await expect(page.locator('head meta[property="og:image"]')).toHaveAttribute(
 			'content',

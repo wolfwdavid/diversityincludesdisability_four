@@ -8,7 +8,11 @@
 	import { site } from '$lib/content/site';
 </script>
 
-<Seo title={site.seo.services.title} description={site.seo.services.description} path="/services/" />
+<Seo
+	title={site.seo.services.title}
+	description={site.seo.services.description}
+	path="/services/"
+/>
 
 <h1>Services</h1>
 <p class="intro">{site.servicesIntro}</p>

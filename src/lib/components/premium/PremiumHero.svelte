@@ -8,10 +8,7 @@
 	// Show the 3D scene ONLY when: Premium mode AND motion allowed AND WebGL present AND context alive.
 	// Any false -> render nothing here; the poster underneath (in Hero.svelte) is the fallback.
 	const show3D = $derived(
-		mode.current === 'premium' &&
-			!prefersReducedMotion.current &&
-			webglSupported() &&
-			!contextLost
+		mode.current === 'premium' && !prefersReducedMotion.current && webglSupported() && !contextLost
 	);
 </script>
 
