@@ -18,7 +18,9 @@
 		"test:a11y": "playwright test tests/a11y.spec.ts",
 		"test:e2e": "playwright test",
 		"test:tokens": "node scripts/check-no-raw-hex.mjs",
-		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:e2e"
+		"test:content": "node scripts/check-content-source.mjs",
+		"test:review": "node scripts/check-review-markers.mjs",
+		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:content && pnpm build && pnpm test:review && pnpm test:e2e"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "4.12.1",

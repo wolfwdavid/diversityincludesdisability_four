@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { mode } from '$lib/stores/mode.svelte';
+	import { site } from '$lib/content/site';
 </script>
 
-<h1>Diversity Includes Disability</h1>
+<h1>{site.home.heroHeadline}</h1>
 <p class="lead">
 	One site, two experiences. You are viewing <strong>{mode.current}</strong> mode — use the toggle in
 	the header to switch. Your choice is remembered.
