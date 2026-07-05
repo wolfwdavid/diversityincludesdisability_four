@@ -19,7 +19,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **A11Y-01**: Every page exposes visible-on-focus skip links (skip to main content, skip to navigation)
 - [ ] **A11Y-02**: All content is delivered in one semantic DOM with correct landmarks (header/nav/main/footer), heading hierarchy, and accessible names — identical structure in both modes
-- [ ] **A11Y-03**: Accessible mode meets WCAG 2.2 AA, targeting AAA contrast (≥7:1 body text) and larger base type; verified by automated axe scans with zero violations
+- [x] **A11Y-03**: Accessible mode meets WCAG 2.2 AA, targeting AAA contrast (≥7:1 body text) and larger base type; verified by automated axe scans with zero violations
 - [ ] **A11Y-04**: All interactive elements have a clearly visible `:focus-visible` indicator meeting WCAG 2.2 focus-appearance, and interactive targets are ≥24×24px (SC 2.5.8)
 - [ ] **A11Y-05**: The entire site is operable by keyboard alone with a logical tab order and no keyboard traps (including any decorative 3D, which is removed from tab order and hidden from screen readers)
 - [ ] **A11Y-06**: All non-text content has appropriate text alternatives (alt text / `aria-hidden` for decorative), and no information is conveyed by color alone
@@ -102,7 +102,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | MODE-05 | Phase 2 | Complete |
 | A11Y-01 | Phase 3 | Pending |
 | A11Y-02 | Phase 3 | Pending |
-| A11Y-03 | Phase 3 | Pending |
+| A11Y-03 | Phase 3 | Complete |
 | A11Y-04 | Phase 3 | Pending |
 | A11Y-05 | Phase 3 | Pending |
 | A11Y-06 | Phase 3 | Pending |
