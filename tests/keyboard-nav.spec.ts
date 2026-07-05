@@ -19,10 +19,24 @@ test('mobile nav: button toggles aria-expanded and navigation sets aria-current'
 	await toggle.click();
 	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 
-	const about = page.getByRole('link', { name: 'About' });
+	// `exact: true` targets ONLY the primary-nav "About" link. Without it the accessible-name
+	// substring match also picks up the Home page's founder link "About Eman Rimawi", which is a
+	// strict-mode violation (two matches) and unrelated to nav behavior.
+	const about = page.getByRole('link', { name: 'About', exact: true });
 	await about.click();
 	await expect(page).toHaveURL(/\/about\/$/);
-	await expect(page.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page');
+
+	// The mobile nav is an APG Disclosure that auto-closes on route change (correct behavior —
+	// RESEARCH Pattern 4). Once closed, the nav list is display:none, so its links leave the
+	// accessibility tree and getByRole can no longer see them. Re-open the disclosure on the
+	// destination page to verify the now-active link exposes aria-current="page". This asserts
+	// the real requirement (active link is marked) without fighting the correct auto-close.
+	await toggle.click();
+	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+	await expect(page.getByRole('link', { name: 'About', exact: true })).toHaveAttribute(
+		'aria-current',
+		'page'
+	);
 });
 
 test('mobile nav: Escape closes the menu and restores focus to the button', async ({ page }) => {
