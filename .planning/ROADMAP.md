@@ -95,17 +95,18 @@ bundle and graceful handling of WebGL failure and context loss.
 **Requirements**: PREM-01, PREM-02, PREM-04
 **Research needed**: MEDIUM-confidence per research SUMMARY — Threlte single-persistent-canvas
 structure, WebGL context-loss handling, disposal patterns, reduced-motion-inside-Premium, and
-the actual hero scene design. Run `/gsd:research-phase 4` (and the `ui-ux-pro-max` skill for
-scene design) before planning.
+the actual hero scene design. Research complete → `04-RESEARCH.md` (HIGH-confidence boundary + scene design).
 **Success Criteria** (what must be TRUE):
   1. In Premium mode on a capable device, a visitor sees a restrained, purposeful 3D hero with motion tied to the `--motion-duration` tokens (and no motion under reduced-motion, even in Premium).
   2. All `three`/`@threlte` code loads only via dynamic `import()` gated on Premium mode and is verifiably absent from the Accessible entry bundle (zero WebGL shipped to Accessible mode).
   3. When WebGL is unavailable or its context is lost, the site falls back to the static poster with no crash and no loss of content.
   4. Navigating away disposes the WebGL resources with no memory leak, and the 3D canvas is `aria-hidden` and removed from the tab order (no focus trap, no SR exposure).
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD (refined during planning)
+- [ ] 04-01-boundary-harness-and-red-specs-PLAN.md — Install pinned three/@threlte, bundle-boundary gate + reduced-motion/WebGL helpers + RED premium e2e spec (wave 1)
+- [ ] 04-02-threlte-scene-island-PLAN.md — Three-free import boundary + Threlte scene (instanced particles/echo rings/blue-orange lights) + disposal/context-loss + Hero overlay (wave 2)
+- [ ] 04-03-drive-green-and-gates-PLAN.md — Drive bundle gate + premium runtime suite + axe regression green; human taste/comfort check (wave 3)
 
 ### Phase 5: Launch Hardening
 **Goal**: The finished site passes an automated accessibility gate, carries correct SEO and
@@ -132,5 +133,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation & Deploy Proof | 0/TBD | Not started | - |
 | 2. Mode System & Design Tokens | 0/TBD | Not started | - |
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
-| 4. Premium 3D | 0/TBD | Not started | - |
+| 4. Premium 3D | 0/3 | Planned | - |
 | 5. Launch Hardening | 0/TBD | Not started | - |
