@@ -41,12 +41,16 @@ test('/contact has a named mailto to emanrimawi@gmail.com and 4 social links (CO
 	page
 }) => {
 	await page.goto('/contact/');
-	const mail = page.locator('a[href^="mailto:emanrimawi@gmail.com"]');
+	// Scope to <main>: the persistent SiteFooter (03-03) also renders a mailto + SocialLinks on
+	// every page, so page-wide counts double. The /about and /services tests above scope to main
+	// for the same reason — assert the contact PAGE's own primary contact block here.
+	const main = page.locator('main');
+	const mail = main.locator('a[href^="mailto:emanrimawi@gmail.com"]');
 	await expect(mail).toHaveCount(1);
 	const mailName = (await mail.getAttribute('aria-label')) || (await mail.innerText());
 	expect(mailName?.trim()).toBeTruthy();
-	// Four social links, each carrying rel="me".
-	await expect(page.locator('a[rel~="me"]')).toHaveCount(4);
+	// Four social links in main, each carrying rel="me".
+	await expect(main.locator('a[rel~="me"]')).toHaveCount(4);
 });
 
 test('/accessibility states a conformance target, a feedback mailto, and a review cadence (A11Y-07)', async ({
