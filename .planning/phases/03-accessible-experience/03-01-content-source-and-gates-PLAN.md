@@ -9,6 +9,10 @@ files_modified:
   - scripts/check-content-source.mjs
   - scripts/check-review-markers.mjs
   - package.json
+  - src/routes/about/+page.svelte
+  - src/routes/services/+page.svelte
+  - src/routes/contact/+page.svelte
+  - src/routes/accessibility/+page.svelte
 autonomous: true
 requirements: [CONT-06]
 must_haves:
@@ -16,6 +20,7 @@ must_haves:
     - "Every page can import all site copy from one typed module (no forked strings)"
     - "No `[REVIEW` marker can reach built HTML"
     - "No hardcoded absolute internal href (`href=\"/`) survives in source"
+    - "All five routes exist (real or stub) so the crawler-strict build never hard-fails on a missing nav/footer link"
   artifacts:
     - path: "src/lib/content/site.ts"
       provides: "Single typed content source for the whole site (CONT-06)"
@@ -24,6 +29,14 @@ must_haves:
       provides: "CONT-06 gate: pages import site.ts + no hardcoded absolute internal links"
     - path: "scripts/check-review-markers.mjs"
       provides: "Build gate: fails if `[REVIEW` appears in build/**/*.html"
+    - path: "src/routes/about/+page.svelte"
+      provides: "Wave-1 placeholder stub (overwritten by 03-06 in Wave 3) so `pnpm build` resolves the shell's /about link"
+    - path: "src/routes/services/+page.svelte"
+      provides: "Wave-1 placeholder stub (overwritten by 03-05 in Wave 3)"
+    - path: "src/routes/contact/+page.svelte"
+      provides: "Wave-1 placeholder stub (overwritten by 03-06 in Wave 3)"
+    - path: "src/routes/accessibility/+page.svelte"
+      provides: "Wave-1 placeholder stub (overwritten by 03-06 in Wave 3)"
   key_links:
     - from: "src/routes/**/+page.svelte"
       to: "src/lib/content/site"
@@ -35,11 +48,14 @@ must_haves:
 Create the single typed content source (`src/lib/content/site.ts`, CONT-06) holding ALL user-visible
 copy from the locked CONTEXT draft, plus the two Node grep gates that keep it honest: a content-source
 gate (pages must import `site.ts`; no hardcoded absolute internal `href="/"`) and a review-marker gate
-(no `[REVIEW` string in the built HTML). Wire both into `package.json` test scripts.
+(no `[REVIEW` string in the built HTML). Wire both into `package.json` test scripts. Finally, lay down
+minimal placeholder `+page.svelte` stubs for the four not-yet-built routes (/about, /services, /contact,
+/accessibility) so that the crawler-strict `prerender.entries:['*'] + handleHttpError:'fail'` build stays
+green the moment Wave 2 adds nav/footer links to those routes.
 
-Purpose: One auditable copy source, zero drift between modes, and a build that fails if placeholder
-markers or base-path-breaking links ever leak.
-Output: `site.ts`, two gate scripts, updated `package.json`.
+Purpose: One auditable copy source, zero drift between modes, a build that fails if placeholder markers or
+base-path-breaking links ever leak, and a continuously buildable route graph from Wave 2 onward.
+Output: `site.ts`, two gate scripts, updated `package.json`, four throwaway route stubs.
 </objective>
 
 <execution_context>
@@ -52,6 +68,7 @@ Output: `site.ts`, two gate scripts, updated `package.json`.
 @.planning/phases/03-accessible-experience/03-RESEARCH.md
 @scripts/check-no-raw-hex.mjs
 @package.json
+@svelte.config.js
 </context>
 
 <tasks>
@@ -142,29 +159,70 @@ Output: `site.ts`, two gate scripts, updated `package.json`.
   <acceptance_criteria>
     - `node scripts/check-content-source.mjs` exits 0 on the current tree
     - `grep -q "test:content" package.json` and `grep -q "test:review" package.json`
-    - `grep -q "check-content-source.mjs" package.json` and `grep -q "check-review-markers.mjs" scripts/check-review-markers.mjs`
+    - `grep -q "check-content-source.mjs" package.json` and `grep -q "check-review-markers.mjs" package.json`
     - After `pnpm build`, `node scripts/check-review-markers.mjs` exits 0
   </acceptance_criteria>
   <verify>
     <automated>node scripts/check-content-source.mjs && pnpm build && node scripts/check-review-markers.mjs</automated>
   </verify>
-  <done>Both gates run clean on the current tree and are wired into the `test` script in the correct order (content grep before build, review grep after build).</done>
+  <done>Both gates run clean on the current tree, both are wired into package.json (`test:content`, `test:review`, and referenced in the `test` chain), in the correct order (content grep before build, review grep after build).</done>
+</task>
+
+<task type="auto">
+  <name>Task 3: Placeholder route stubs so the crawler-strict build stays green from Wave 2 on</name>
+  <files>src/routes/about/+page.svelte, src/routes/services/+page.svelte, src/routes/contact/+page.svelte, src/routes/accessibility/+page.svelte</files>
+  <read_first>
+    - svelte.config.js (`prerender.entries: ['*']`, `handleHttpError: 'fail'` — this is WHY the stubs are needed)
+    - src/lib/content/site.ts (created in Task 1 — the stubs import from it to satisfy check-content-source)
+  </read_first>
+  <action>
+    `svelte.config.js` sets `prerender.entries: ['*']` with `handleHttpError: 'fail'`, and the Playwright webServer
+    runs `pnpm build && pnpm preview`. So the moment Wave 2 (03-03 shell) adds nav + footer links to /about,
+    /services, /contact, and /accessibility, ANY `pnpm build` (and therefore any `npx playwright test`) will crawl
+    those links and HARD-FAIL because the real routes don't land until Wave 3. Fix it now by laying down minimal
+    placeholder `+page.svelte` stubs for all four routes so the build resolves them continuously.
+
+    Each stub is a throwaway scaffold that (a) imports the content module so `check-content-source.mjs` passes on it,
+    (b) renders exactly one `<h1>`, and (c) references a `site` field so the import is used (no unused-import lint):
+    - `src/routes/about/+page.svelte` → `<script>import { site } from '$lib/content/site';</script>` then `<h1>{site.about.heading}</h1>`
+    - `src/routes/services/+page.svelte` → import site; `<h1>Services</h1>` + `<p>{site.servicesIntro}</p>`
+    - `src/routes/contact/+page.svelte` → import site; `<h1>{site.contact.ctaPhrase}</h1>`
+    - `src/routes/accessibility/+page.svelte` → import site; `<h1>Accessibility</h1>` + `<p>{site.a11yStatement.conformanceTarget}</p>`
+
+    NO `[REVIEW]` text, NO hardcoded absolute internal `href="/"`. These stubs are OVERWRITTEN with the real,
+    fully accessible content in Wave 3 — /services by 03-05, and /about + /contact + /accessibility by 03-06. That
+    is an intentional cross-wave overwrite, not a same-wave collision.
+  </action>
+  <acceptance_criteria>
+    - All four files exist and each contains `content/site`
+    - `grep -q '<h1' src/routes/about/+page.svelte` (and same for services, contact, accessibility)
+    - NOT `grep -q 'href="/' src/routes/about/+page.svelte` (and same for the other three)
+    - NOT `grep -q '\[REVIEW' src/routes/about/+page.svelte` (and same for the other three)
+    - `pnpm build` (BASE_PATH set, MSYS_NO_PATHCONV=1) exits 0 and produces `build/about/index.html`, `build/services/index.html`, `build/contact/index.html`, `build/accessibility/index.html`
+    - `node scripts/check-content-source.mjs` exits 0
+  </acceptance_criteria>
+  <verify>
+    <automated>node scripts/check-content-source.mjs && pnpm check && pnpm build</automated>
+  </verify>
+  <done>Four placeholder route stubs exist, each imports site.ts and renders a single h1; `pnpm build` prerenders all five routes so the shell's nav/footer links resolve continuously from Wave 2 onward.</done>
 </task>
 
 </tasks>
 
 <verification>
-- `pnpm check` clean (site.ts type-checks).
+- `pnpm check` clean (site.ts + stubs type-check).
 - `node scripts/check-content-source.mjs` exits 0.
-- `pnpm build && node scripts/check-review-markers.mjs` exits 0.
-- No `[REVIEW` string outside a comment in `site.ts`.
+- `pnpm build && node scripts/check-review-markers.mjs` exits 0, with `build/{about,services,contact,accessibility}/index.html` present.
+- No `[REVIEW` string outside a comment in `site.ts`; no `[REVIEW` in any stub.
 </verification>
 
 <success_criteria>
 Single typed content source exists and type-checks; both grep gates pass and are wired into `test`;
-no hardcoded absolute internal links and no rendered `[REVIEW` markers are possible.
+no hardcoded absolute internal links and no rendered `[REVIEW` markers are possible; and all five routes
+prerender (four as throwaway stubs) so the crawler-strict build never hard-fails on a missing nav/footer link.
 </success_criteria>
 
 <output>
 After completion, create `.planning/phases/03-accessible-experience/03-01-SUMMARY.md`.
+</output>
 </output>

@@ -50,7 +50,7 @@ created: 2026-07-04
 
 ## Wave 0 Requirements
 - [ ] Extend `tests/a11y.spec.ts` to loop all routes × both modes
-- [ ] New specs: `tests/nav-keyboard.spec.ts`, `tests/content.spec.ts`, `tests/skip-links.spec.ts`
+- [ ] New specs: `tests/keyboard-nav.spec.ts`, `tests/content-routes.spec.ts`, `tests/skip-links.spec.ts`
 - [ ] `scripts/check-review-markers.mjs` (fail if `[REVIEW` in build/ HTML) + `scripts/check-base-links.mjs` (or fold into existing gate)
 
 ## Manual-Only Verifications

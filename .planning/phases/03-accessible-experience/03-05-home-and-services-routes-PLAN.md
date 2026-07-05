@@ -39,8 +39,12 @@ mission section, 4-service overview via ServiceCard level=3, founder credibility
 CTA band) and Services (`/services`, CONT-03 — intro line + one `<h2>` section per service with its
 fuller description). All copy from `site.ts`; single `<h1>` per page; all links via `resolve()`.
 
+Note: `src/routes/services/+page.svelte` already EXISTS as a Wave-1 placeholder stub (created by 03-01 so the
+crawler-strict build stayed green). This plan OVERWRITES that stub with the real content — the file is present,
+not newly created.
+
 Purpose: The two highest-traffic content pages, heading-safe and axe-clean.
-Output: rewritten `+page.svelte`, new `services/+page.svelte`.
+Output: rewritten `+page.svelte` (Home), overwritten `services/+page.svelte`.
 </objective>
 
 <execution_context>
@@ -58,6 +62,7 @@ From 03-01 `site.ts`: `site.home.{heroHeadline,heroSubhead,mission,founderRole,f
 `site.services: ServiceItem[]`, `site.servicesIntro`, `site.founder`, `site.contact.ctaPhrase`.
 From 03-04: `Hero.svelte` (renders its own h1 + CTA), `ServiceCard.svelte` (props `{ service, level, showBody }`).
 `resolve` from `$app/paths` for every internal link. Heading rule: exactly one `<h1>` per route inside `<main>`.
+03-01 already placed stub `+page.svelte` files for /services (and the other routes) — this plan overwrites the /services stub.
 </interfaces>
 </context>
 
@@ -105,7 +110,8 @@ From 03-04: `Hero.svelte` (renders its own h1 + CTA), `ServiceCard.svelte` (prop
     - src/lib/components/ServiceCard.svelte (level=2 showBody usage)
   </read_first>
   <action>
-    Create `src/routes/services/+page.svelte`. `import ServiceCard from '$lib/components/ServiceCard.svelte'; import { site } from '$lib/content/site';`
+    OVERWRITE `src/routes/services/+page.svelte` (it already exists as the 03-01 Wave-1 stub — replace its full
+    contents). `import ServiceCard from '$lib/components/ServiceCard.svelte'; import { site } from '$lib/content/site';`
     - Single `<h1>Services</h1>` inside main.
     - Intro `<p>{site.servicesIntro}</p>` (the field ships from `site.ts` in 03-01 — do NOT edit site.ts here).
     - `{#each site.services as service}<ServiceCard {service} level={2} showBody />{/each}` → four `<h2>` sections each with the fuller `body` description and a "Let's Connect" link.
@@ -139,4 +145,5 @@ Home and Services are complete, single-h1, heading-order-clean pages sourced ent
 
 <output>
 After completion, create `.planning/phases/03-accessible-experience/03-05-SUMMARY.md`.
+</output>
 </output>

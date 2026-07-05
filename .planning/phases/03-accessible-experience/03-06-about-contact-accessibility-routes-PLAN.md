@@ -44,8 +44,12 @@ rendered only if provided), Contact (`/contact`, CONT-04 + CONT-05 — labeled `
 plus the named `SocialLinks`), and the Accessibility Statement (`/accessibility`, A11Y-07 — four canonical
 sections). Single `<h1>` per page; conditional rendering so no `[REVIEW]`/unprovided content ever shows.
 
+Note: all three route files (`about`, `contact`, `accessibility`) already EXIST as Wave-1 placeholder stubs
+(created by 03-01 so the crawler-strict build stayed green). This plan OVERWRITES each stub with the real
+content — the files are present, not newly created.
+
 Purpose: Complete the five-route set as one accessible DOM.
-Output: three new `+page.svelte` routes.
+Output: three overwritten `+page.svelte` routes.
 </objective>
 
 <execution_context>
@@ -63,6 +67,7 @@ From 03-01 `site.ts`: `site.about.{heading,para1,para2Placeholder,para3,pullQuot
 `site.a11yStatement.{conformanceTarget,knownIssues[],feedbackEmail,reviewCadence,lastReviewed}`.
 From 03-03: `SocialLinks.svelte`. `resolve` from `$app/paths`. Heading rule: exactly one `<h1>` per route.
 `site.about.pullQuote` is `undefined` until real copy is provided — render ONLY with `{#if site.about.pullQuote}`.
+03-01 already placed stub `+page.svelte` files for /about, /contact, /accessibility — this plan overwrites all three.
 </interfaces>
 </context>
 
@@ -76,7 +81,8 @@ From 03-03: `SocialLinks.svelte`. `resolve` from `$app/paths`. Heading rule: exa
     - .planning/phases/03-accessible-experience/03-RESEARCH.md (CONT-02 row; Pitfall 4 [REVIEW] leak)
   </read_first>
   <action>
-    Create `src/routes/about/+page.svelte`. `import { site } from '$lib/content/site';`
+    OVERWRITE `src/routes/about/+page.svelte` (it already exists as the 03-01 Wave-1 stub — replace its full
+    contents). `import { site } from '$lib/content/site';`
     - `<h1>{site.about.heading}</h1>` (single h1).
     - `<p>{site.about.para1}</p>`, `<p>{site.about.para2Placeholder}</p>`, `<p>{site.about.para3}</p>`.
     - Optional pull-quote: `{#if site.about.pullQuote}<blockquote>{site.about.pullQuote}</blockquote>{/if}` — renders nothing while undefined.
@@ -104,7 +110,8 @@ From 03-03: `SocialLinks.svelte`. `resolve` from `$app/paths`. Heading rule: exa
     - src/lib/components/SocialLinks.svelte (from 03-03)
   </read_first>
   <action>
-    Create `src/routes/contact/+page.svelte`. `import { site } from '$lib/content/site'; import SocialLinks from '$lib/components/SocialLinks.svelte';`
+    OVERWRITE `src/routes/contact/+page.svelte` (it already exists as the 03-01 Wave-1 stub — replace its full
+    contents). `import { site } from '$lib/content/site'; import SocialLinks from '$lib/components/SocialLinks.svelte';`
     - `<h1>{site.contact.ctaPhrase}</h1>` (i.e. "Let's Connect").
     - `<p>{site.contactIntro}</p>`.
     - Primary contact: a visible, accessibly-named `<a href={`mailto:${site.contact.email}`}>Email {site.founder}</a>` (link text is real, not a bare icon; the address is also visible nearby).
@@ -132,7 +139,8 @@ From 03-03: `SocialLinks.svelte`. `resolve` from `$app/paths`. Heading rule: exa
     - .planning/REQUIREMENTS.md (A11Y-07 text)
   </read_first>
   <action>
-    Create `src/routes/accessibility/+page.svelte`. `import { site } from '$lib/content/site';`
+    OVERWRITE `src/routes/accessibility/+page.svelte` (it already exists as the 03-01 Wave-1 stub — replace its full
+    contents). `import { site } from '$lib/content/site';`
     - `<h1>Accessibility</h1>` (single h1).
     - `<section aria-labelledby="conf-h"><h2 id="conf-h">Conformance target</h2><p>{site.a11yStatement.conformanceTarget}</p></section>`.
     - `<section aria-labelledby="issues-h"><h2 id="issues-h">Known issues</h2><ul>{#each site.a11yStatement.knownIssues as issue}<li>{issue}</li>{/each}</ul></section>`.
@@ -168,4 +176,5 @@ About, Contact, and the Accessibility Statement complete the five-route accessib
 
 <output>
 After completion, create `.planning/phases/03-accessible-experience/03-06-SUMMARY.md`.
+</output>
 </output>
