@@ -25,10 +25,12 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 - ✓ Persistent, prominent mode toggle (Premium 3D ⇄ Accessible) that remembers the choice — Phase 2 (native `<button aria-pressed>`, localStorage, `aria-live` announce)
 - ✓ No-flash pre-paint theming + `prefers-reduced-motion`/`prefers-contrast` auto-select Accessible — Phase 2
 - ✓ AAA-verified two-mode CSS token contract, one accessible CSS-driven DOM, self-hosted fonts (Lexend + Source Sans 3) — Phase 2 (10/10 e2e, axe wcag2aaa clean both modes)
+- ✓ Complete 5-page site (Home, About, Services, Contact, Accessibility Statement) with faithful DID content from a single content source — Phase 3
+- ✓ Accessible mode content: WCAG 2.2 AA+ / AAA contrast, keyboard-complete, skip links, APG nav disclosure, semantic DOM, responsive — Phase 3 (57/57 e2e, axe wcag2aaa clean all 5 routes both modes)
+- ✓ Static poster hero (PREM-03), zero WebGL shipped in Accessible mode — Phase 3
 
 ### Active
 
-- [ ] Accessible mode content: WCAG 2.2 AA+ (AAA contrast where feasible), no motion, keyboard-first, screen-reader friendly, larger type, skip links — engine done (Phase 2); page content in Phase 3
 - [ ] Premium mode: Threlte/Three.js hero + tasteful motion, lazy-loaded so Accessible mode ships zero WebGL — Phase 4
 - [ ] Home page: hero, mission, the 4 services, founder credibility, "Let's Connect" CTA
 - [ ] About Me page: Eman's story and disability-equity work
