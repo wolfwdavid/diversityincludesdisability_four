@@ -85,7 +85,7 @@ Plans:
 - [x] 03-04-content-components-PLAN.md — Static poster Hero (PREM-03) + heading-level-adaptive ServiceCard (wave 2)
 - [x] 03-05-home-and-services-routes-PLAN.md — Home (CONT-01) + Services (CONT-03) routes (wave 3)
 - [x] 03-06-about-contact-accessibility-routes-PLAN.md — About, Contact (mailto + social), Accessibility Statement (wave 3)
-- [ ] 03-07-integration-verify-PLAN.md — Drive full suite green + human keyboard/screen-reader a11y pass (wave 4)
+- [x] 03-07-integration-verify-PLAN.md — Drive full suite green + human keyboard/screen-reader a11y pass (wave 4)
 
 ### Phase 4: Premium 3D (NEEDS RESEARCH)
 **Goal**: Premium mode adds one tasteful, restrained Threlte/Three.js hero loaded only on
@@ -131,6 +131,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Deploy Proof | 0/TBD | Not started | - |
 | 2. Mode System & Design Tokens | 0/TBD | Not started | - |
-| 3. Accessible Experience | 0/TBD | Not started | - |
+| 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
 | 4. Premium 3D | 0/TBD | Not started | - |
 | 5. Launch Hardening | 0/TBD | Not started | - |
