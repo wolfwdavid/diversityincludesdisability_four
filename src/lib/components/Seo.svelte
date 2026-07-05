@@ -10,8 +10,8 @@
 		image = `${site.url}${base}/og-image.png`
 	}: { title: string; description: string; path: string; image?: string } = $props();
 
-	const fullTitle = path === '/' ? site.org : `${title} | ${site.org}`;
-	const url = `${site.url}${base}${path}`;
+	const fullTitle = $derived(path === '/' ? site.org : `${title} | ${site.org}`);
+	const url = $derived(`${site.url}${base}${path}`);
 	const imageAlt = `${site.org} — ${site.tagline}`;
 </script>
 
