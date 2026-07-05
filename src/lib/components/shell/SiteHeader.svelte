@@ -39,7 +39,14 @@
 <header class="site-header">
 	<a class="brand" href={resolve('/')}>{site.org}</a>
 
-	<div class="header-actions">
+	<!--
+		Escape handling lives on this wrapper (which contains BOTH the toggle button and the nav)
+		because after opening the menu focus sits on the button, which is a sibling OUTSIDE <nav> —
+		a keydown listener scoped to <nav> alone would never see it. This div is a passive event
+		container, not an interactive control, hence the a11y-ignore.
+	-->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div class="header-actions" onkeydown={onKeydown}>
 		<button
 			id="nav-toggle"
 			type="button"
@@ -60,8 +67,7 @@
 			<span>Menu</span>
 		</button>
 
-		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<nav id="nav" aria-label="Primary" onkeydown={onKeydown}>
+		<nav id="nav" aria-label="Primary">
 			<ul id="primary-nav-list" class:open>
 				{#each nav as item (item.href)}
 					<li>

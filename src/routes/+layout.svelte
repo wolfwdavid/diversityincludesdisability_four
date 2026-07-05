@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { resolve } from '$app/paths';
 	import { mode } from '$lib/stores/mode.svelte';
-	import ModeToggle from '$lib/components/shell/ModeToggle.svelte';
+	import SkipLinks from '$lib/components/shell/SkipLinks.svelte';
+	import SiteHeader from '$lib/components/shell/SiteHeader.svelte';
+	import SiteFooter from '$lib/components/shell/SiteFooter.svelte';
 	import favicon from '$lib/assets/favicon.svg';
 
 	// Global tokens + self-hosted fonts (Vite rewrites url() → base-correct hashed assets; no googleapis).
@@ -53,36 +54,19 @@
 	<link rel="preload" href={bodySans400} as="font" type="font/woff2" crossorigin="anonymous" />
 </svelte:head>
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<SkipLinks />
+<SiteHeader />
 
-<header class="site-header">
-	<a class="brand" href={resolve('/')}>Diversity Includes Disability</a>
-	<ModeToggle />
-</header>
-
-<main id="main">
+<main id="main" tabindex="-1">
 	{@render children()}
 </main>
+
+<SiteFooter />
 
 <!-- MODE-05: persistent polite region (present at mount so AT announces later changes) -->
 <p class="visually-hidden" role="status" aria-live="polite">{mode.announcement}</p>
 
 <style>
-	.site-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-4);
-		padding: var(--space-4) var(--space-5);
-		border-bottom: 1px solid var(--border);
-		background: var(--surface);
-	}
-	.brand {
-		color: var(--primary);
-		font-family: var(--font-heading);
-		font-weight: 600;
-		text-decoration: none;
-	}
 	#main {
 		padding: var(--space-6) var(--space-5);
 		max-width: var(--measure);
