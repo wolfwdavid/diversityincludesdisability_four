@@ -25,6 +25,34 @@ export const site = {
 	org: 'Diversity Includes Disability',
 	tagline: 'Diversity Includes Disability',
 	founder: 'Eman Rimawi',
+	url: 'https://wolfwdavid.github.io', // origin only, NO trailing slash — used for absolute SEO/OG URLs
+	seo: {
+		home: {
+			title: 'Diversity Includes Disability',
+			description:
+				'Intersectional disability equity, inclusion, and representation — training, consulting, and speaking that move organizations from awareness to action.'
+		},
+		about: {
+			title: 'About Eman Rimawi',
+			description:
+				'Diversity Includes Disability makes disability central to every diversity, equity, and inclusion conversation — from awareness to durable, accessible practice.'
+		},
+		services: {
+			title: 'Services',
+			description:
+				'Trainings and facilitation, disability consulting, modeling for representation, and speaking and panels — partnership toward durable, accessible practice.'
+		},
+		contact: {
+			title: 'Contact',
+			description:
+				'Reach out about trainings, consulting, modeling, or speaking — or to start a conversation about building disability equity into your work.'
+		},
+		accessibility: {
+			title: 'Accessibility Statement',
+			description:
+				'Our WCAG 2.2 AA (targeting AAA) accessibility commitment, known issues, feedback path, and review cadence.'
+		}
+	},
 	contact: {
 		email: 'emanrimawi@gmail.com',
 		ctaPhrase: "Let's Connect"
