@@ -22,9 +22,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **A11Y-03**: Accessible mode meets WCAG 2.2 AA, targeting AAA contrast (≥7:1 body text) and larger base type; verified by automated axe scans with zero violations
 - [ ] **A11Y-04**: All interactive elements have a clearly visible `:focus-visible` indicator meeting WCAG 2.2 focus-appearance, and interactive targets are ≥24×24px (SC 2.5.8)
 - [ ] **A11Y-05**: The entire site is operable by keyboard alone with a logical tab order and no keyboard traps (including any decorative 3D, which is removed from tab order and hidden from screen readers)
-- [ ] **A11Y-06**: All non-text content has appropriate text alternatives (alt text / `aria-hidden` for decorative), and no information is conveyed by color alone
+- [x] **A11Y-06**: All non-text content has appropriate text alternatives (alt text / `aria-hidden` for decorative), and no information is conveyed by color alone
 - [ ] **A11Y-07**: A public Accessibility Statement page documents conformance target, known issues, feedback path, and review cadence (scope.org.uk pattern)
-- [ ] **A11Y-08**: No motion plays when `prefers-reduced-motion: reduce` is set, in either mode; Premium motion is opt-in and pausable
+- [x] **A11Y-08**: No motion plays when `prefers-reduced-motion: reduce` is set, in either mode; Premium motion is opt-in and pausable
 
 ### Content & Pages
 
@@ -45,7 +45,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **PREM-01**: Premium mode renders a tasteful Threlte/Three.js hero experience with restrained motion
 - [ ] **PREM-02**: All `three`/`@threlte` code is loaded only via dynamic `import()` gated on Premium mode, verified absent from the Accessible entry bundle (zero WebGL shipped to Accessible mode)
-- [ ] **PREM-03**: Accessible mode (and any WebGL failure / reduced-motion) shows a static poster image in place of the 3D hero, with no loss of content
+- [x] **PREM-03**: Accessible mode (and any WebGL failure / reduced-motion) shows a static poster image in place of the 3D hero, with no loss of content
 - [ ] **PREM-04**: The 3D scene disposes its WebGL resources on navigation/unmount and handles context loss gracefully (no leaks, no crash)
 
 ### Build & Deploy
@@ -105,9 +105,9 @@ Which phases cover which requirements. Populated during roadmap creation.
 | A11Y-03 | Phase 3 | Complete |
 | A11Y-04 | Phase 3 | Pending |
 | A11Y-05 | Phase 3 | Pending |
-| A11Y-06 | Phase 3 | Pending |
+| A11Y-06 | Phase 3 | Complete |
 | A11Y-07 | Phase 3 | Pending |
-| A11Y-08 | Phase 3 | Pending |
+| A11Y-08 | Phase 3 | Complete |
 | CONT-01 | Phase 3 | Pending |
 | CONT-02 | Phase 3 | Pending |
 | CONT-03 | Phase 3 | Pending |
@@ -119,7 +119,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | DS-02 | Phase 2 | Complete |
 | PREM-01 | Phase 4 | Pending |
 | PREM-02 | Phase 4 | Pending |
-| PREM-03 | Phase 3 | Pending |
+| PREM-03 | Phase 3 | Complete |
 | PREM-04 | Phase 4 | Pending |
 | DEPLOY-01 | Phase 1 | Complete |
 | DEPLOY-02 | Phase 1 | Complete |
