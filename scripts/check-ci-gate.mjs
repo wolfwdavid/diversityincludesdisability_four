@@ -1,0 +1,26 @@
+import { readFileSync } from 'node:fs';
+
+// QA-01 / DEPLOY-04 static gate. Asserts .github/workflows/deploy.yml still wires the launch
+// pipeline: a `verify` job (Playwright axe both modes + Lighthouse budgets) that gates build and
+// deploy, the Follow-up-1 guarded deploy1/deploy2 retry pair, and the post-deploy live-smoke job
+// with CDN-propagation retry. A future edit that silently drops the gate fails this check.
+const wf = readFileSync('.github/workflows/deploy.yml', 'utf8');
+const need = [
+	['verify job', /verify:/],
+	['playwright browser install', /playwright install --with-deps chromium/],
+	['axe/e2e gate', /pnpm test:e2e/],
+	['lighthouse budget', /lhci autorun/],
+	['build gated on verify', /needs: verify/],
+	['deploy gated on build', /needs: build/],
+	['guarded deploy retry', /continue-on-error: true/],
+	['deploy retry guard', /steps\.deploy1\.outcome == 'failure'/],
+	['smoke gated on deploy', /smoke:[\s\S]*needs: deploy/],
+	['smoke retry action', /nick-fields\/retry@v4/],
+	['smoke runs live-smoke', /scripts\/live-smoke\.mjs/]
+];
+const fails = need.filter(([, re]) => !re.test(wf)).map(([label]) => label);
+if (fails.length) {
+	console.error('CI GATE FAIL: deploy.yml missing:\n- ' + fails.join('\n- '));
+	process.exit(1);
+}
+console.log('CI GATE OK: verify(axe+lhci) -> build -> deploy(retry) -> smoke all present');
