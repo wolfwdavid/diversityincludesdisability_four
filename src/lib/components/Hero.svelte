@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { site } from '$lib/content/site';
 	import { resolve } from '$app/paths';
+	import PremiumHero from '$lib/components/premium/PremiumHero.svelte'; // WebGL-free boundary — safe static import
 </script>
 
 <!--
@@ -56,6 +57,10 @@
 			<circle cx="380" cy="250" r="5" opacity="0.8" />
 		</g>
 	</svg>
+
+	<!-- Premium 3D island: overlays the poster ONLY when it mounts a canvas (Premium+motion+WebGL);
+	     every fallback path renders nothing here and the poster above remains the permanent hero. -->
+	<PremiumHero />
 
 	<div class="hero__content">
 		<h1>{site.home.heroHeadline}</h1>
