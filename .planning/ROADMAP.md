@@ -118,10 +118,14 @@ all base-path-sensitive links and assets exist.
   1. Every page carries correct title/description meta and Open Graph/Twitter card tags with absolute URLs under the base path, passing social-card validators (prerendered `<svelte:head>`, static OG image).
   2. CI runs an accessibility gate (axe via Playwright in both modes) plus a Lighthouse budget, and the build fails on any a11y violation.
   3. The complete site is verified live under `/diversityincludesdisability_four/` — links, images, and `_app/immutable` chunks all resolve, including a deep-link hard refresh — proven with a real Pages deploy, not just local preview.
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 05-01: TBD (refined during planning)
+- [ ] 05-01-seo-meta-component-and-routes-PLAN.md — Seo.svelte + site.ts url/seo map + per-route <Seo> + head e2e + BASE_PATH build-grep (SEO-01) (wave 1)
+- [ ] 05-02-og-image-and-local-fixes-PLAN.md — 1200x630 OG card + deterministic no-flash fix + HeroScene CSS hoist + CI worker cap (SEO-01, follow-ups 2&3) (wave 1)
+- [ ] 05-03-lighthouse-budget-and-live-smoke-PLAN.md — lighthouserc.json (a11y>=0.95) + live-smoke.mjs, both proven locally (QA-01, DEPLOY-04) (wave 2)
+- [ ] 05-04-ci-workflow-gate-and-retry-PLAN.md — deploy.yml verify(axe+lhci)->build->deploy(guarded retry)->smoke + check-ci-gate (QA-01, DEPLOY-04, follow-up 1) (wave 3)
+- [ ] 05-05-regression-and-launch-verify-PLAN.md — aggregate test:launch green + push + live CI verify + human launch check (SEO-01, QA-01, DEPLOY-04) (wave 4)
 
 ## Progress
 
@@ -134,4 +138,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Mode System & Design Tokens | 0/TBD | Not started | - |
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
 | 4. Premium 3D | 0/3 | Planned | - |
-| 5. Launch Hardening | 0/TBD | Not started | - |
+| 5. Launch Hardening | 0/5 | Planned | - |
