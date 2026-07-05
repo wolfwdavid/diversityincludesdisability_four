@@ -23,6 +23,8 @@
 		"test:content": "node scripts/check-content-source.mjs",
 		"test:review": "node scripts/check-review-markers.mjs",
 		"test:split": "node scripts/check-3d-boundary.mjs",
+		"lhci": "lhci autorun",
+		"smoke": "node scripts/live-smoke.mjs",
 		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:content && pnpm build && pnpm test:split && pnpm test:review && pnpm test:e2e"
 	},
 	"devDependencies": {
