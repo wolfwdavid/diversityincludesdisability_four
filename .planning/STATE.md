@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-07-PLAN.md (integration-verify) — Phase 3 gate green
-last_updated: "2026-07-05T03:30:10.284Z"
+stopped_at: Completed 04-01-PLAN.md (boundary harness + RED specs)
+last_updated: "2026-07-05T04:45:51.476Z"
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
+  total_plans: 15
+  completed_plans: 13
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** A visitor can experience DID's mission and services in the mode that works for their body and brain — and switch instantly, with the choice remembered. Accessible mode is first-class, not a fallback.
-**Current focus:** Phase 03 — accessible-experience
+**Current focus:** Phase 04 — premium-3d-needs-research
 
 ## Current Position
 
-Phase: 03 (accessible-experience) — EXECUTING
-Plan: 5 of 7
+Phase: 04 (premium-3d-needs-research) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Plan: 5 of 7
 | Phase 03 P06 | 7min | 3 tasks | 4 files |
 | Phase 03 P05 | 20 | 2 tasks | 3 files |
 | Phase 03 P07 | 95 | 2 tasks | 6 files |
+| Phase 04 P01 | 8 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-05: multi-CTA pages assert visibility with .first() in e2e — a page may legitimately repeat a labelled CTA (Let's Connect appears in hero, each card, and the CTA band)
 - [Phase 03]: Phase-3 gate green: 57/57 e2e (axe wcag2aaa on 5 routes x2 modes) + all static gates + BASE_PATH build
 - [Phase 03]: Made Playwright preview port configurable (PREVIEW_PORT) after discovering the suite was reusing sibling project diversityincludesdisability_one's server on shared port 4173
+- [Phase 04]: PREM-02 boundary gate matches chunk CONTENT (regex @threlte|WebGLRenderer|three.module over built .js), not filenames — robust to hashed chunk names
+- [Phase 04]: @threlte/extras omitted (avoids OrbitControls focus-trap + chunk bloat); premium/ narrowly exempted from raw-hex gate for token-derived three.Color constants
 
 ### Pending Todos
 
@@ -103,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T03:29:35.067Z
-Stopped at: Completed 03-07-PLAN.md (integration-verify) — Phase 3 gate green
+Last session: 2026-07-05T04:45:23.617Z
+Stopped at: Completed 04-01-PLAN.md (boundary harness + RED specs)
 Resume file: None
