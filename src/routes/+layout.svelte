@@ -48,7 +48,6 @@
 </script>
 
 <svelte:head>
-	<title>Diversity Includes Disability</title>
 	<link rel="icon" href={favicon} />
 	<link rel="preload" href={lexend700} as="font" type="font/woff2" crossorigin="anonymous" />
 	<link rel="preload" href={bodySans400} as="font" type="font/woff2" crossorigin="anonymous" />

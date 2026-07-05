@@ -5,9 +5,12 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 	import { resolve } from '$app/paths';
 </script>
+
+<Seo title={site.seo.home.title} description={site.seo.home.description} path="/" />
 
 <Hero />
 

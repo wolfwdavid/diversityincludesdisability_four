@@ -3,9 +3,12 @@
      true-but-generic placeholder while the real [REVIEW] bio lives as a comment in site.ts, and the
      pull-quote renders ONLY when a real quote is provided (undefined → nothing renders). -->
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 	import { resolve } from '$app/paths';
 </script>
+
+<Seo title={site.seo.about.title} description={site.seo.about.description} path="/about/" />
 
 <article class="about">
 	<h1>{site.about.heading}</h1>

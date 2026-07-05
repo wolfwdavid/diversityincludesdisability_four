@@ -4,8 +4,11 @@
      shown as visible text nearby so the accessible name is unambiguous. -->
 <script lang="ts">
 	import { site } from '$lib/content/site';
+	import Seo from '$lib/components/Seo.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 </script>
+
+<Seo title={site.seo.contact.title} description={site.seo.contact.description} path="/contact/" />
 
 <section class="contact">
 	<h1>{site.contact.ctaPhrase}</h1>

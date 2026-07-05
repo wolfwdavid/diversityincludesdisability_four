@@ -4,8 +4,11 @@
      A11Y-02 / WCAG 1.3.1), each with its fuller body description and a "Let's Connect" link. -->
 <script lang="ts">
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
+
+<Seo title={site.seo.services.title} description={site.seo.services.description} path="/services/" />
 
 <h1>Services</h1>
 <p class="intro">{site.servicesIntro}</p>

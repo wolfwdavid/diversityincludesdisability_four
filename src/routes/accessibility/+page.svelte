@@ -4,8 +4,15 @@
      (CONT-06); the known-issues list honestly names the pending [REVIEW] items (social URLs, no 3D hero
      yet) rather than presenting a fake-perfect record. -->
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
+
+<Seo
+	title={site.seo.accessibility.title}
+	description={site.seo.accessibility.description}
+	path="/accessibility/"
+/>
 
 <article class="a11y">
 	<h1>Accessibility</h1>
