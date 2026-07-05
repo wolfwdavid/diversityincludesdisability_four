@@ -1,8 +1,62 @@
-<!-- Wave-1 placeholder stub. Overwritten with the real, fully accessible /about page in Wave 3 (03-06).
-     Exists now so the crawler-strict build (prerender.entries:['*'], handleHttpError:'fail') resolves
-     the shell's /about nav + footer link the moment Wave 2 adds it. -->
+<!-- /about (CONT-02) — Eman Rimawi's story told through role-based, verified-public-fact copy.
+     Single <h1>; every string comes from site.about (CONT-06). The personal-story paragraph is a
+     true-but-generic placeholder while the real [REVIEW] bio lives as a comment in site.ts, and the
+     pull-quote renders ONLY when a real quote is provided (undefined → nothing renders). -->
 <script lang="ts">
 	import { site } from '$lib/content/site';
+	import { resolve } from '$app/paths';
 </script>
 
-<h1>{site.about.heading}</h1>
+<article class="about">
+	<h1>{site.about.heading}</h1>
+
+	<p>{site.about.para1}</p>
+	<p>{site.about.para2Placeholder}</p>
+	<p>{site.about.para3}</p>
+
+	{#if site.about.pullQuote}
+		<blockquote class="about__quote">{site.about.pullQuote}</blockquote>
+	{/if}
+
+	<p class="about__cta">
+		<a href={resolve('/contact')}>{site.contact.ctaPhrase}</a>
+	</p>
+</article>
+
+<style>
+	.about {
+		max-width: var(--measure);
+		margin-inline: auto;
+		padding: var(--space-7) var(--space-5);
+	}
+	.about h1 {
+		font-size: var(--fs-h1);
+		margin: 0 0 var(--space-5);
+	}
+	.about p {
+		font-size: var(--fs-lg);
+		margin: 0 0 var(--space-5);
+	}
+	.about__quote {
+		margin: var(--space-6) 0;
+		padding: var(--space-4) var(--space-5);
+		border-left: var(--space-1) solid var(--primary);
+		background: var(--surface);
+		border-radius: var(--radius-sm);
+		font-size: var(--fs-lg);
+		font-style: italic;
+	}
+	.about__cta a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		padding: var(--space-2) var(--space-4);
+		color: var(--primary);
+		font-weight: 600;
+		text-decoration: underline;
+		border-radius: var(--radius-sm);
+	}
+	.about__cta a:hover {
+		color: var(--primary-hover, var(--primary));
+	}
+</style>
