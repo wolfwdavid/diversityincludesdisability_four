@@ -70,7 +70,13 @@ test('PREM-02 premium+motion downloads a three chunk and mounts a canvas', async
 	await page.goto('/');
 	await expect(page.locator('html')).toHaveAttribute('data-hydrated', 'true');
 	await expect(page.locator('canvas')).toBeVisible();
-	expect(bodies.some((b) => /@threlte|THREE\.WebGLRenderer/.test(b))).toBe(true);
+	// The response handler reads each chunk body via an async `r.text()`, so the three chunk's body
+	// may still be resolving when the canvas becomes visible. Poll (don't read once) so the assertion
+	// waits for that async capture instead of racing it — the guarantee (a downloaded .js chunk carries
+	// the three/WebGL signature) is unchanged.
+	await expect
+		.poll(() => bodies.some((b) => /@threlte|THREE\.WebGLRenderer/.test(b)), { timeout: 5_000 })
+		.toBe(true);
 });
 
 test('PREM-04 nav away/back x15 disposes cleanly — no WebGL context leak', async ({ page }) => {

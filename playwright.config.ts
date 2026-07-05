@@ -11,6 +11,9 @@ export default defineConfig({
 	testDir: 'tests',
 	timeout: 30_000,
 	fullyParallel: true,
+	// Cap workers under CI to reduce runner contention on timing-sensitive tests (belt-and-suspenders
+	// alongside the deterministic no-flash fix); local runs stay unbounded (undefined).
+	workers: process.env.CI ? 2 : undefined,
 	// Run the suite against the PRODUCTION build (adapter-static + `pnpm preview`), not the dev
 	// server. Dev-mode hydration compiles modules on demand, so a click can land before the
 	// button's handler is attached (lost interaction). The preview build hydrates near-instantly,

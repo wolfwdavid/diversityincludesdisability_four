@@ -1,24 +1,16 @@
 <script lang="ts">
-	import { Canvas } from '@threlte/core';
-	import Scene from './scene/Scene.svelte';
-
 	let { onContextLost }: { onContextLost?: () => void } = $props();
 </script>
 
-<div class="scene" aria-hidden="true">
-	<Canvas renderMode="on-demand" dpr={[1, 1.5]}>
-		<Scene {onContextLost} />
-	</Canvas>
+<!-- `.hero-scene` positioning lives in tokens.css (always-loaded), so this component carries NO
+     scoped style block → no HeroScene CSS chunk to hoist. The only CSS-bearing node in the scene is
+     @threlte/core's <Canvas>, isolated in SceneCanvas.svelte behind a SECOND dynamic import. That
+     extra hop puts the Canvas CSS at SvelteKit find_deps `dynamic_import_depth` 2 — past the
+     `depth <= 1` window that eagerly links dynamic-import CSS to prevent FOUC — so NO premium scene
+     CSS <link> loads on the accessible home. The JS code-split boundary is unchanged/strengthened
+     (check-3d-boundary.mjs stays green); Vite still fetches the scene CSS on demand in premium. -->
+<div class="hero-scene" aria-hidden="true">
+	{#await import('./SceneCanvas.svelte') then { default: SceneCanvas }}
+		<SceneCanvas {onContextLost} />
+	{/await}
 </div>
-
-<style>
-	.scene {
-		position: absolute;
-		inset: 0;
-		pointer-events: none; /* decorative — no pointer/AT capture, never in tab order */
-	}
-	.scene :global(canvas) {
-		width: 100%;
-		height: 100%;
-	}
-</style>
