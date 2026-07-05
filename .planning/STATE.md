@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-02-PLAN.md (og-image-and-local-fixes)
-last_updated: "2026-07-05T10:49:41.703Z"
+stopped_at: Completed 05-03-PLAN.md (lighthouse-budget-and-live-smoke)
+last_updated: "2026-07-05T11:26:59.515Z"
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 20
-  completed_plans: 17
+  completed_plans: 18
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 05 (launch-hardening) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 
 ## Performance Metrics
 
@@ -63,6 +63,7 @@ Plan: 2 of 5
 | Phase 04 P03 | 40 | 3 tasks | 1 files |
 | Phase 05 P01 | 22 | 3 tasks | 11 files |
 | Phase 05-launch-hardening P02 | 61 | 3 tasks | 9 files |
+| Phase 05-launch-hardening P03 | 31 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -104,6 +105,8 @@ Recent decisions affecting current work:
 - [Phase 05]: SEO-01: absolute-URL SEO composed from constants (site.url+base+path), never runtime page.url — immune to static-adapter prerender pathname quirks; split validation (e2e origin+path in preview, BASE_PATH build-grep for the repo segment)
 - [Phase 05-launch-hardening]: 05-02: HeroScene eager-CSS leak was @threlte Canvas CSS (not HeroScene's own style); isolated Canvas in SceneCanvas.svelte behind a 2nd dynamic import so its CSS sits at SvelteKit find_deps depth 2, past the depth<=1 eager-hoist window — no premium scene CSS link on the accessible home, JS boundary unchanged
 - [Phase 05-launch-hardening]: 05-02: no-flash MODE-03 made deterministic with expect.poll + optional chaining (keeps waitUntil:'commit' pre-paint guarantee); OG card uses accessible-mode light tokens per plan acceptance
+- [Phase 05-launch-hardening]: 05-03: Lighthouse SEO budget excludes the 404 SPA fallback shell via assertMatrix (client-routed, HTTP 404, no per-route meta by design); a11y>=0.95 + best-practices>=0.9 still gate every page
+- [Phase 05-launch-hardening]: 05-03: lhci maxAutodiscoverUrls:0 lifts the default 5-URL cap so all 6 prerendered pages are audited (default silently dropped services/index.html); live-smoke.mjs is dependency-free Node 24 fetch with retry-backoff
 
 ### Pending Todos
 
@@ -117,6 +120,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T10:49:07.670Z
-Stopped at: Completed 05-02-PLAN.md (og-image-and-local-fixes)
+Last session: 2026-07-05T11:26:40.515Z
+Stopped at: Completed 05-03-PLAN.md (lighthouse-budget-and-live-smoke)
 Resume file: None
