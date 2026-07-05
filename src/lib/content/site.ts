@@ -85,10 +85,25 @@ export const site = {
 	contactIntro:
 		'Reach out about trainings, consulting, modeling, or speaking engagements — or just to start a conversation about building disability equity into your work.',
 	social: [
-		{ name: 'Facebook', label: 'Diversity Includes Disability on Facebook', href: '#', icon: 'facebook' }, // [REVIEW: confirm handle/URL]
+		{
+			name: 'Facebook',
+			label: 'Diversity Includes Disability on Facebook',
+			href: '#',
+			icon: 'facebook'
+		}, // [REVIEW: confirm handle/URL]
 		{ name: 'X', label: 'Diversity Includes Disability on X (Twitter)', href: '#', icon: 'x' }, // [REVIEW: confirm handle/URL]
-		{ name: 'LinkedIn', label: 'Diversity Includes Disability on LinkedIn', href: '#', icon: 'linkedin' }, // [REVIEW: confirm handle/URL]
-		{ name: 'Instagram', label: 'Diversity Includes Disability on Instagram', href: '#', icon: 'instagram' } // [REVIEW: confirm handle/URL]
+		{
+			name: 'LinkedIn',
+			label: 'Diversity Includes Disability on LinkedIn',
+			href: '#',
+			icon: 'linkedin'
+		}, // [REVIEW: confirm handle/URL]
+		{
+			name: 'Instagram',
+			label: 'Diversity Includes Disability on Instagram',
+			href: '#',
+			icon: 'instagram'
+		} // [REVIEW: confirm handle/URL]
 	] satisfies SocialItem[],
 	a11yStatement: {
 		conformanceTarget:

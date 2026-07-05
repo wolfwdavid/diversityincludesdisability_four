@@ -21,7 +21,9 @@ test('home (/) renders hero, mission, 4 service cards, a Connect CTA, and no can
 	await expect(page.locator('canvas')).toHaveCount(0);
 });
 
-test('/about renders the "About Eman Rimawi" h1 and body paragraphs (CONT-02)', async ({ page }) => {
+test('/about renders the "About Eman Rimawi" h1 and body paragraphs (CONT-02)', async ({
+	page
+}) => {
 	await page.goto('/about/');
 	await expect(page.getByRole('heading', { level: 1, name: /about eman rimawi/i })).toBeVisible();
 	// At least a couple of body paragraphs of real copy.

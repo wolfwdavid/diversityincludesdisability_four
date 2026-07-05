@@ -11,6 +11,7 @@
 <ul class="social">
 	{#each site.social as s (s.icon)}
 		<li>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external identity profiles (rel="me"); social URLs (and the "#" placeholder) are off-site and must NOT be base-resolved -->
 			<a href={s.href} rel="me noopener" aria-label={s.label}>
 				<svg class="social__icon" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
 					{#if s.icon === 'facebook'}
