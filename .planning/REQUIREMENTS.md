@@ -57,7 +57,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Quality Gates (SEO & CI)
 
-- [ ] **SEO-01**: Each page has correct title/description meta and Open Graph/Twitter card tags with absolute URLs under the base path
+- [x] **SEO-01**: Each page has correct title/description meta and Open Graph/Twitter card tags with absolute URLs under the base path
 - [ ] **QA-01**: CI runs an automated accessibility gate (axe via Playwright in both modes) and a Lighthouse budget; the build fails on a11y violations
 
 ## v2 Requirements
@@ -125,7 +125,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | DEPLOY-02 | Phase 1 | Complete |
 | DEPLOY-03 | Phase 1 | Complete |
 | DEPLOY-04 | Phase 5 | Pending |
-| SEO-01 | Phase 5 | Pending |
+| SEO-01 | Phase 5 | Complete |
 | QA-01 | Phase 5 | Pending |
 
 **Coverage:**

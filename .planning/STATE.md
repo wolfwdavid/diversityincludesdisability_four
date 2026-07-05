@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-03-PLAN.md (drive-green-and-gates — phase 04 gate GREEN)
-last_updated: "2026-07-05T06:03:23.291Z"
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-07-05T10:01:45.045Z"
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 15
-  completed_plans: 15
+  total_plans: 20
+  completed_plans: 16
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** A visitor can experience DID's mission and services in the mode that works for their body and brain — and switch instantly, with the choice remembered. Accessible mode is first-class, not a fallback.
-**Current focus:** Phase 04 — premium-3d-needs-research
+**Current focus:** Phase 05 — launch-hardening
 
 ## Current Position
 
-Phase: 5
-Plan: Not started
+Phase: 05 (launch-hardening) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -61,6 +61,7 @@ Plan: Not started
 | Phase 04 P01 | 8 | 3 tasks | 5 files |
 | Phase 04 P02 | 12 | 3 tasks | 7 files |
 | Phase 04 P03 | 40 | 3 tasks | 1 files |
+| Phase 05 P01 | 22 | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -99,6 +100,7 @@ Recent decisions affecting current work:
 - [Phase 04]: Procedural drift scene (300-instance InstancedMesh + wireframe tori + point lights) on an on-demand transparent Canvas; explicit renderer.dispose()+forceContextLoss() teardown, context-loss retreats to poster (PREM-04)
 - [Phase 04]: Phase-4 gate GREEN: 64/64 e2e (7 premium-3d + 57 prior), PREM-02 boundary proven (1 premium chunk, home WebGL-free), axe wcag2aaa clean both modes with canvas present
 - [Phase 04]: Default (unseeded) mode resolves to Premium; mode-specific DOM tests must seed the mode they assert — corrected stale content-routes PREM-03 zero-canvas assertion to seed Accessible
+- [Phase 05]: SEO-01: absolute-URL SEO composed from constants (site.url+base+path), never runtime page.url — immune to static-adapter prerender pathname quirks; split validation (e2e origin+path in preview, BASE_PATH build-grep for the repo segment)
 
 ### Pending Todos
 
@@ -112,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T05:46:12.432Z
-Stopped at: Completed 04-03-PLAN.md (drive-green-and-gates — phase 04 gate GREEN)
+Last session: 2026-07-05T10:01:13.854Z
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
