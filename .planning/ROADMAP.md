@@ -24,7 +24,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: Mode System & Design Tokens** - Persistent, accessible mode toggle with no-flash pre-paint theming and a WCAG-verified two-mode token contract
 - [ ] **Phase 3: Accessible Experience** - All four pages of faithful DID content as one semantic DOM, gold-standard accessible, shipping zero WebGL
 - [ ] **Phase 4: Premium 3D** - A tasteful Threlte hero loaded only on demand behind a dynamic import boundary, with graceful WebGL failure handling
-- [ ] **Phase 5: Launch Hardening** - SEO/social meta, a blocking CI accessibility gate, and live verification of the finished site on GitHub Pages
+- [x] **Phase 5: Launch Hardening** - SEO/social meta, a blocking CI accessibility gate, and live verification of the finished site on GitHub Pages
 
 ## Phase Details
 
@@ -125,7 +125,7 @@ Plans:
 - [x] 05-02-og-image-and-local-fixes-PLAN.md — 1200x630 OG card + deterministic no-flash fix + HeroScene CSS hoist + CI worker cap (SEO-01, follow-ups 2&3) (wave 1)
 - [x] 05-03-lighthouse-budget-and-live-smoke-PLAN.md — lighthouserc.json (a11y>=0.95) + live-smoke.mjs, both proven locally (QA-01, DEPLOY-04) (wave 2)
 - [x] 05-04-ci-workflow-gate-and-retry-PLAN.md — deploy.yml verify(axe+lhci)->build->deploy(guarded retry)->smoke + check-ci-gate (QA-01, DEPLOY-04, follow-up 1) (wave 3)
-- [ ] 05-05-regression-and-launch-verify-PLAN.md — aggregate test:launch green + push + live CI verify + human launch check (SEO-01, QA-01, DEPLOY-04) (wave 4)
+- [x] 05-05-regression-and-launch-verify-PLAN.md — aggregate test:launch green + push + live CI verify + human launch check (SEO-01, QA-01, DEPLOY-04) (wave 4)
 
 ## Progress
 
@@ -138,4 +138,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Mode System & Design Tokens | 0/TBD | Not started | - |
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
 | 4. Premium 3D | 0/3 | Planned | - |
-| 5. Launch Hardening | 0/5 | Planned | - |
+| 5. Launch Hardening | 5/5 | Complete | 2026-07-05 |
