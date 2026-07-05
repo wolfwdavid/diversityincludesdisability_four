@@ -20,7 +20,8 @@
 		"test:tokens": "node scripts/check-no-raw-hex.mjs",
 		"test:content": "node scripts/check-content-source.mjs",
 		"test:review": "node scripts/check-review-markers.mjs",
-		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:content && pnpm build && pnpm test:review && pnpm test:e2e"
+		"test:split": "node scripts/check-3d-boundary.mjs",
+		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:content && pnpm build && pnpm test:split && pnpm test:review && pnpm test:e2e"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "4.12.1",
@@ -30,6 +31,7 @@
 		"@sveltejs/adapter-static": "3.0.10",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@types/three": "0.185.0",
 		"axe-core": "4.12.1",
 		"eslint": "10.6.0",
 		"eslint-config-prettier": "10.1.8",
@@ -46,6 +48,8 @@
 	},
 	"dependencies": {
 		"@fontsource/lexend": "5.2.11",
-		"@fontsource/source-sans-3": "5.2.9"
+		"@fontsource/source-sans-3": "5.2.9",
+		"@threlte/core": "8.5.16",
+		"three": "0.185.1"
 	}
 }
