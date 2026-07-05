@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-01-PLAN.md (boundary harness + RED specs)
-last_updated: "2026-07-05T04:45:51.476Z"
+stopped_at: Completed 04-02-PLAN.md (threlte scene island)
+last_updated: "2026-07-05T05:12:37.335Z"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 15
-  completed_plans: 13
+  completed_plans: 14
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 04 (premium-3d-needs-research) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Plan: 2 of 3
 | Phase 03 P05 | 20 | 2 tasks | 3 files |
 | Phase 03 P07 | 95 | 2 tasks | 6 files |
 | Phase 04 P01 | 8 | 3 tasks | 5 files |
+| Phase 04 P02 | 12 | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Made Playwright preview port configurable (PREVIEW_PORT) after discovering the suite was reusing sibling project diversityincludesdisability_one's server on shared port 4173
 - [Phase 04]: PREM-02 boundary gate matches chunk CONTENT (regex @threlte|WebGLRenderer|three.module over built .js), not filenames — robust to hashed chunk names
 - [Phase 04]: @threlte/extras omitted (avoids OrbitControls focus-trap + chunk bloat); premium/ narrowly exempted from raw-hex gate for token-derived three.Color constants
+- [Phase 04]: PremiumHero is a three-free lazy-import boundary: import('./HeroScene.svelte') is the sole path into the three graph, so Vite code-splits WebGL out of the accessible bundle
+- [Phase 04]: Procedural drift scene (300-instance InstancedMesh + wireframe tori + point lights) on an on-demand transparent Canvas; explicit renderer.dispose()+forceContextLoss() teardown, context-loss retreats to poster (PREM-04)
 
 ### Pending Todos
 
@@ -106,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T04:45:23.617Z
-Stopped at: Completed 04-01-PLAN.md (boundary harness + RED specs)
+Last session: 2026-07-05T05:12:10.212Z
+Stopped at: Completed 04-02-PLAN.md (threlte scene island)
 Resume file: None
