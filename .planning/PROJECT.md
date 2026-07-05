@@ -32,6 +32,8 @@ site must remain fully usable, perceivable, and operable in Accessible mode.
 ### Active
 
 - ✓ Premium mode: Threlte/Three.js procedural hero (luminous-depth particle field + echo rings), lazy-loaded so Accessible mode ships zero WebGL — Phase 4 (bundle boundary grep-proven, dispose leak-free, context-loss→poster, axe clean both modes, 64/64 e2e)
+- ✓ SEO/social meta (absolute base-path OG/Twitter/canonical + 1200×630 OG card) on all routes — Phase 5 (SEO-01)
+- ✓ CI accessibility+Lighthouse gate (axe both modes + a11y≥0.95) fail-closed before deploy, guarded deploy retry, post-deploy live smoke — Phase 5 (QA-01, DEPLOY-04); full pipeline verify→build→deploy→smoke green
 - [ ] Home page: hero, mission, the 4 services, founder credibility, "Let's Connect" CTA
 - [ ] About Me page: Eman's story and disability-equity work
 - [ ] Services detail: Trainings & Facilitation, Consulting, Modeling for Representation, Speaking/Panels
@@ -102,4 +104,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-04 after initialization*
+*Last updated: 2026-07-05 — v1.0 milestone COMPLETE (all 5 phases shipped + verified live). Open follow-ups for a future milestone: replace `[REVIEW]` placeholders (Eman's real bio, pull-quote, social URLs, founder title) and optionally the v2 items (contact form, donation/podcast).*
