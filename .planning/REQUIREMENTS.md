@@ -44,7 +44,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Premium 3D
 
 - [x] **PREM-01**: Premium mode renders a tasteful Threlte/Three.js hero experience with restrained motion
-- [ ] **PREM-02**: All `three`/`@threlte` code is loaded only via dynamic `import()` gated on Premium mode, verified absent from the Accessible entry bundle (zero WebGL shipped to Accessible mode)
+- [x] **PREM-02**: All `three`/`@threlte` code is loaded only via dynamic `import()` gated on Premium mode, verified absent from the Accessible entry bundle (zero WebGL shipped to Accessible mode)
 - [x] **PREM-03**: Accessible mode (and any WebGL failure / reduced-motion) shows a static poster image in place of the 3D hero, with no loss of content
 - [x] **PREM-04**: The 3D scene disposes its WebGL resources on navigation/unmount and handles context loss gracefully (no leaks, no crash)
 
@@ -118,7 +118,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | DS-01 | Phase 2 | Complete |
 | DS-02 | Phase 2 | Complete |
 | PREM-01 | Phase 4 | Complete |
-| PREM-02 | Phase 4 | Pending |
+| PREM-02 | Phase 4 | Complete |
 | PREM-03 | Phase 3 | Complete |
 | PREM-04 | Phase 4 | Complete |
 | DEPLOY-01 | Phase 1 | Complete |

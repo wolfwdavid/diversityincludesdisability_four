@@ -106,7 +106,7 @@ the actual hero scene design. Research complete → `04-RESEARCH.md` (HIGH-confi
 Plans:
 - [x] 04-01-boundary-harness-and-red-specs-PLAN.md — Install pinned three/@threlte, bundle-boundary gate + reduced-motion/WebGL helpers + RED premium e2e spec (wave 1)
 - [x] 04-02-threlte-scene-island-PLAN.md — Three-free import boundary + Threlte scene (instanced particles/echo rings/blue-orange lights) + disposal/context-loss + Hero overlay (wave 2)
-- [ ] 04-03-drive-green-and-gates-PLAN.md — Drive bundle gate + premium runtime suite + axe regression green; human taste/comfort check (wave 3)
+- [x] 04-03-drive-green-and-gates-PLAN.md — Drive bundle gate + premium runtime suite + axe regression green; human taste/comfort check (wave 3)
 
 ### Phase 5: Launch Hardening
 **Goal**: The finished site passes an automated accessibility gate, carries correct SEO and
