@@ -21,9 +21,11 @@
 	let open = $state(false);
 
 	// Auto-close the mobile menu whenever the route changes (rune reacts to navigation).
+	// Reading page.url.pathname inside the effect registers the reactive dependency so this
+	// re-runs on every client navigation; the guard keeps it a real statement (not a bare
+	// expression) while still closing the disclosure after each route change.
 	$effect(() => {
-		page.url.pathname;
-		open = false;
+		if (page.url.pathname) open = false;
 	});
 
 	// APG Disclosure: Escape closes the open menu and returns focus to the toggle button.
@@ -91,12 +93,20 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		/* Wrap on very narrow viewports so the brand + Menu button + mode toggle never force
+		   horizontal overflow (CONT-07 / WCAG 1.4.10 Reflow at 320px). At >=48rem everything fits
+		   on one row and this has no effect. */
+		flex-wrap: wrap;
 		gap: var(--space-4);
 		padding: var(--space-4) var(--space-5);
 		border-bottom: 1px solid var(--border);
 		background: var(--surface);
 	}
 	.brand {
+		/* min-width:0 lets the brand shrink below its intrinsic width inside the flex row instead
+		   of pushing the header past the viewport; overflow-wrap keeps the long org name readable. */
+		min-width: 0;
+		overflow-wrap: anywhere;
 		color: var(--primary);
 		font-family: var(--font-heading);
 		font-weight: 600;
