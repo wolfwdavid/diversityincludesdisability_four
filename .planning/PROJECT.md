@@ -46,6 +46,7 @@ over to the real domain — human-gated items cleanly separated from work that c
 - ✓ Premium mode: Threlte/Three.js procedural hero (luminous-depth particle field + echo rings), lazy-loaded so Accessible mode ships zero WebGL — Phase 4 (bundle boundary grep-proven, dispose leak-free, context-loss→poster, axe clean both modes, 64/64 e2e)
 - ✓ SEO/social meta (absolute base-path OG/Twitter/canonical + 1200×630 OG card) on all routes — Phase 5 (SEO-01)
 - ✓ CI accessibility+Lighthouse gate (axe both modes + a11y≥0.95) fail-closed before deploy, guarded deploy retry, post-deploy live smoke — Phase 5 (QA-01, DEPLOY-04); full pipeline verify→build→deploy→smoke green
+- ✓ Accessible progressive-enhancement contact form shipping inert (empty `PUBLIC_WEB3FORMS_KEY`, mailto primary), no-JS success page, self-omitting About media section, unit+enabled+contrast suites wired into `test`/`test:launch`/CI with the enabled suite ordered after lhci — Phase 6 (ENGAGE-01/02/03); 74 default e2e + 10 enabled + 4 unit green, zero v1.0 regression
 - [ ] Home page: hero, mission, the 4 services, founder credibility, "Let's Connect" CTA
 - [ ] About Me page: Eman's story and disability-equity work
 - [ ] Services detail: Trainings & Facilitation, Consulting, Modeling for Representation, Speaking/Panels
@@ -116,4 +117,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-06 — v1.1 "Real Content & Reach" milestone started (v1.0 archived to MILESTONES.md). Handoff to Eman drafted at Websites/Rimawi/HANDOFF-EMAN-website.md.*
+*Last updated: 2026-07-06 — Phase 6 (Engagement Surfaces) complete and verified 4/4. Phases 7 (real content) and 8 (domain cutover) remain gated on Eman's answers and registrar access.*
