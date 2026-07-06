@@ -143,14 +143,12 @@ Plans:
 
 ---
 
-## Milestone v1.1 — Real Content & Reach
-
-Phases 6–8 continue the numbering from v1.0 (which ended at Phase 5). The organizing principle
-is a clean split between **buildable-now** work (Phase 6, no external input) and **human-gated**
-work (Phases 7–8, blocked on Eman's answers and registrar/leave-Wix decisions). Every v1.1 phase
-must keep the v1.0 launch gates green: axe zero violations in both modes, the 3D bundle boundary
-(zero WebGL in Accessible), SEO meta correctness, and the fail-closed CI accessibility/Lighthouse
-gate.
+*Milestone v1.1 — Real Content & Reach: Phases 6–8 continue the numbering from v1.0 (which ended
+at Phase 5). The organizing principle is a clean split between **buildable-now** work (Phase 6,
+no external input) and **human-gated** work (Phases 7–8, blocked on Eman's answers and
+registrar/leave-Wix decisions). Every v1.1 phase must keep the v1.0 launch gates green: axe zero
+violations in both modes, the 3D bundle boundary (zero WebGL in Accessible), SEO meta correctness,
+and the fail-closed CI accessibility/Lighthouse gate.*
 
 ### Phase 6: Engagement Surfaces
 **Goal**: Visitors gain two new ways to engage — an accessible, progressively-enhanced contact
