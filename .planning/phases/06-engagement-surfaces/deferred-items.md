@@ -10,3 +10,10 @@ Out-of-scope issues discovered during execution. NOT fixed by the discovering pl
   computed contrast gate`, commit b5ec05c). Blocks the `pnpm lint` gate. Fix with
   `pnpm exec prettier --write scripts/check-token-contrast.mjs` during 06-04
   (integration drive-green). Not caused by 06-02's changes.
+
+## From 06-03 (media-section-and-about)
+
+- **Re-confirmed:** the same `scripts/check-token-contrast.mjs` prettier failure (from 06-01)
+  still blocks the aggregate `pnpm lint` gate. 06-03 did not touch `scripts/`. All 06-03-authored
+  files (MediaSection.svelte, about/+page.svelte, site.ts, both specs) are prettier-clean and
+  eslint-clean. Still deferred to 06-04.
