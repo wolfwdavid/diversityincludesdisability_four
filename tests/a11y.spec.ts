@@ -2,7 +2,14 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 // Every content route in the site. trailingSlash is 'always', so URLs carry a trailing slash.
-const ROUTES = ['/', '/about/', '/services/', '/contact/', '/accessibility/'] as const;
+const ROUTES = [
+	'/',
+	'/about/',
+	'/services/',
+	'/contact/',
+	'/accessibility/',
+	'/contact/success/'
+] as const;
 // The two togglable experiences. Both must pass the same WCAG gate — Accessible mode is not a
 // degraded fallback, so it is held to the identical (AAA-inclusive) axe bar as Premium.
 const MODES = ['accessible', 'premium'] as const;
