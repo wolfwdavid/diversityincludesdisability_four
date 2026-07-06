@@ -7,8 +7,8 @@
 
 ### Engagement (buildable NOW, no external input needed)
 
-- [ ] **ENGAGE-01**: Visitor can send a message via an accessible on-page contact form (visible labels, inline validation on blur, error messages with recovery guidance, focus-to-first-error, no CAPTCHA) as a progressive enhancement over the existing mailto
-- [ ] **ENGAGE-02**: The form's submission endpoint is config-driven (Web3Forms/Formspree key); with no key configured the form is hidden and the mailto remains primary — the site never shows a broken form
+- [x] **ENGAGE-01**: Visitor can send a message via an accessible on-page contact form (visible labels, inline validation on blur, error messages with recovery guidance, focus-to-first-error, no CAPTCHA) as a progressive enhancement over the existing mailto
+- [x] **ENGAGE-02**: The form's submission endpoint is config-driven (Web3Forms/Formspree key); with no key configured the form is hidden and the mailto remains primary — the site never shows a broken form
 - [ ] **ENGAGE-03**: A podcast/media section renders from a typed list in site.ts (title, description, link, accessible names) and is omitted entirely while the list is empty
 
 ### Real Content (GATED on Eman's answers — see Websites/Rimawi/HANDOFF-EMAN-website.md)
@@ -155,8 +155,8 @@ Which phases cover which requirements. Populated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ENGAGE-01 | Phase 6 | Pending |
-| ENGAGE-02 | Phase 6 | Pending |
+| ENGAGE-01 | Phase 6 | Complete |
+| ENGAGE-02 | Phase 6 | Complete |
 | ENGAGE-03 | Phase 6 | Pending |
 | RCONT-01 | Phase 7 | Pending (gated on Eman) |
 | RCONT-02 | Phase 7 | Pending (gated on Eman) |

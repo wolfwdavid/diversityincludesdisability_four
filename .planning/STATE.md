@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: — Dual-Mode Site
 status: unknown
-stopped_at: Completed 06-01-PLAN.md (harness + inert env + engagement tokens)
-last_updated: "2026-07-06T10:05:57.400Z"
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-07-06T10:55:08.440Z"
 progress:
   total_phases: 6
   completed_phases: 5
   total_plans: 24
-  completed_plans: 21
+  completed_plans: 22
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-06)
 ## Current Position
 
 Phase: 06 (engagement-surfaces) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 
 ## Performance Metrics
 
@@ -67,6 +67,7 @@ Plan: 2 of 4
 | Phase 05-launch-hardening P04 | 12min | 2 tasks | 3 files |
 | Phase 05 P05 | 44 | 3 tasks | 7 files |
 | Phase 06 P01 | 18 | 3 tasks | 13 files |
+| Phase 06 P02 | 41 | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,7 @@ Recent decisions affecting current work:
 - [Phase 05]: CI verify job (axe both modes + lhci) fail-closed gates build+deploy; guarded deploy retry self-heals transient Pages failures; post-deploy live-smoke. test:launch aggregates every gate.
 - [Phase 06]: Contact endpoint ships inert via $env/static/public + a committed empty .env default (PUBLIC_WEB3FORMS_KEY=""); process.env/Actions Variable overrides to enable — build stays green with the key unset.
 - [Phase 06]: Default vs enabled Playwright split: default config testIgnore array excludes tests/unit + *.enabled.spec.ts; enabled config builds with a dummy key on an isolated port for the visible-form specs.
+- [Phase 06]: Contact form ships hidden behind inert PUBLIC_WEB3FORMS_KEY; bound honeypot forwarded in JSON payload; /contact/success/ noindex, in axe ROUTES but excluded from 5-route SEO gate
 
 ### Pending Todos
 
@@ -113,6 +115,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-07-06T10:05:57.393Z
-Stopped at: Completed 06-01-PLAN.md (harness + inert env + engagement tokens)
+Last session: 2026-07-06T10:54:32.980Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
