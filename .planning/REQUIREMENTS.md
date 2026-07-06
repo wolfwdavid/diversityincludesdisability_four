@@ -1,7 +1,28 @@
 # Requirements: Diversity Includes Disability — Dual-Mode Site
 
-**Defined:** 2026-07-04
+**Defined:** 2026-07-04 · **v1.1 defined:** 2026-07-06
 **Core Value:** A visitor can experience DID's mission and services in the mode that works for their body and brain — and switch instantly, with the choice remembered. Accessible mode is first-class, not a fallback.
+
+## v1.1 Requirements — Real Content & Reach
+
+### Engagement (buildable NOW, no external input needed)
+
+- [ ] **ENGAGE-01**: Visitor can send a message via an accessible on-page contact form (visible labels, inline validation on blur, error messages with recovery guidance, focus-to-first-error, no CAPTCHA) as a progressive enhancement over the existing mailto
+- [ ] **ENGAGE-02**: The form's submission endpoint is config-driven (Web3Forms/Formspree key); with no key configured the form is hidden and the mailto remains primary — the site never shows a broken form
+- [ ] **ENGAGE-03**: A podcast/media section renders from a typed list in site.ts (title, description, link, accessible names) and is omitted entirely while the list is empty
+
+### Real Content (GATED on Eman's answers — see Websites/Rimawi/HANDOFF-EMAN-website.md)
+
+- [ ] **RCONT-01**: About page shows Eman's real biography (replaces the `[REVIEW]` scaffold)
+- [ ] **RCONT-02**: About page renders her real pull-quote (or the quote block stays omitted if she declines)
+- [ ] **RCONT-03**: Social links point to her real profiles (no `href="#"` placeholders remain)
+- [ ] **RCONT-04**: Founder title reflects her confirmed wording
+- [ ] **RCONT-05**: Accessibility Statement known-issues list is updated to remove each resolved placeholder item
+
+### Domain (GATED on registrar access + leave-Wix decision)
+
+- [ ] **DOMAIN-01**: Site is served at www.diversityincludesdisability.org over HTTPS (Pages custom domain + CNAME file + DNS records; runbook documented for Eman's registrar)
+- [ ] **DOMAIN-02**: `site.url` and all absolute SEO/OG/canonical URLs point at the new domain; SEO build gate + live smoke re-run green against it
 
 ## v1 Requirements
 
@@ -66,9 +87,9 @@ Deferred to a future release. Tracked but not in the current roadmap.
 
 ### Contact & Engagement
 
-- **CONT2-01**: Progressive-enhancement contact form via a static-friendly backend (Formspree/Web3Forms), no CAPTCHA
-- **CONT2-02**: Donation mechanism (PayPal/Zeffy QR) — from the paused Rimawi RESUME.md
-- **CONT2-03**: Podcast links / media section
+- ~~**CONT2-01**: Progressive-enhancement contact form~~ → promoted to v1.1 as ENGAGE-01/02
+- **CONT2-02**: Donation mechanism (PayPal/Zeffy QR) — still deferred, gated on 501(c)(3)/fiscal-sponsor status
+- ~~**CONT2-03**: Podcast links / media section~~ → promoted to v1.1 as ENGAGE-03
 
 ### Content Authoring
 
