@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: — Dual-Mode Site
 status: unknown
-stopped_at: Completed 06-03-PLAN.md
-last_updated: "2026-07-06T11:11:04.993Z"
+stopped_at: "Completed 06-04-PLAN.md (Phase 6 complete: 74 default e2e + 10 enabled + 4 unit + all gates green; live CI verify->build->deploy->smoke success)"
+last_updated: "2026-07-06T12:46:31.945Z"
 progress:
   total_phases: 6
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 24
-  completed_plans: 23
+  completed_plans: 24
 ---
 
 # Project State
@@ -69,6 +69,7 @@ Plan: 4 of 4
 | Phase 06 P01 | 18 | 3 tasks | 13 files |
 | Phase 06 P02 | 41 | 3 tasks | 7 files |
 | Phase 06 P03 | 12 | 2 tasks | 5 files |
+| Phase 06 P04 | 91min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -102,6 +103,8 @@ Recent decisions affecting current work:
 - [Phase 06]: Default vs enabled Playwright split: default config testIgnore array excludes tests/unit + *.enabled.spec.ts; enabled config builds with a dummy key on an isolated port for the visible-form specs.
 - [Phase 06]: Contact form ships hidden behind inert PUBLIC_WEB3FORMS_KEY; bound honeypot forwarded in JSON payload; /contact/success/ noindex, in axe ROUTES but excluded from 5-route SEO gate
 - [Phase 06]: [Phase 06]: MediaSection self-omits via {#if items.length} guarding the whole landmark (empty typed site.podcasts → no heading/section/shell); items prop defaults to site.podcasts for fixture-injectable vitest branch proof; media section lives on About (RESEARCH Pattern 4), not a new /media route, so the 5-route SEO/axe arrays stay untouched
+- [Phase 06]: Enabled (dummy-key) suite ordered LAST in test:launch and the CI verify job so Lighthouse only ever audits the default no-key build; check-ci-gate statically asserts the index order fail-closed
+- [Phase 06]: Intentionally-noindex /contact/success/ excluded from lhci SEO minScore (mirrors 404.html); accessibility/best-practices still asserted on it
 
 ### Pending Todos
 
@@ -117,6 +120,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-07-06T11:10:50.754Z
-Stopped at: Completed 06-03-PLAN.md
+Last session: 2026-07-06T12:46:31.938Z
+Stopped at: Completed 06-04-PLAN.md (Phase 6 complete: 74 default e2e + 10 enabled + 4 unit + all gates green; live CI verify->build->deploy->smoke success)
 Resume file: None
