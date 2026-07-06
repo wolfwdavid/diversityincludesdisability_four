@@ -21,6 +21,13 @@ export interface SocialItem {
 	icon: 'facebook' | 'x' | 'linkedin' | 'instagram';
 }
 
+export interface PodcastItem {
+	title: string;
+	description: string;
+	url: string;
+	platform?: string;
+}
+
 export const site = {
 	org: 'Diversity Includes Disability',
 	tagline: 'Diversity Includes Disability',
@@ -163,6 +170,10 @@ export const site = {
 			icon: 'instagram'
 		} // [REVIEW: confirm handle/URL]
 	] satisfies SocialItem[],
+	// Podcast / media appearances (ENGAGE-03). MediaSection renders NOTHING while this is empty —
+	// no empty shell. Populate with real, verified appearances only.
+	podcasts: [] satisfies PodcastItem[] as PodcastItem[],
+	mediaHeading: 'Media & Podcasts',
 	a11yStatement: {
 		conformanceTarget:
 			'WCAG 2.2 Level AA as the floor, targeting Level AAA where feasible in Accessible mode.',
