@@ -17,12 +17,13 @@ must_haves:
   truths:
     - "While site.podcasts is empty (now), the About page renders NO media section — no heading, no landmark, no empty shell (ENGAGE-03)."
     - "MediaSection with a populated fixture renders each item as a link with an accessible name plus its description; with an empty list it renders nothing (vitest data-branch proof)."
+    - "The media heading text lives in site.ts (site.mediaHeading), not hardcoded in the component (single content source)."
   artifacts:
     - path: "src/lib/content/site.ts"
-      provides: "PodcastItem interface + empty typed podcasts list (single content source)"
-      contains: "PodcastItem"
+      provides: "PodcastItem interface + empty typed podcasts list + mediaHeading copy (single content source)"
+      contains: "mediaHeading"
     - path: "src/lib/components/MediaSection.svelte"
-      provides: "Data-driven section that self-omits when the list is empty (accepts items prop for fixture injection)"
+      provides: "Data-driven section that self-omits when the list is empty (accepts items prop for fixture injection), heading from site.mediaHeading"
       contains: "items.length"
     - path: "tests/unit/media-section.spec.ts"
       provides: "vitest empty→nothing / populated→list branch test"
@@ -39,13 +40,17 @@ must_haves:
       to: "site.podcasts"
       via: "default prop items = site.podcasts"
       pattern: "items = site.podcasts"
+    - from: "src/lib/components/MediaSection.svelte"
+      to: "site.mediaHeading"
+      via: "section heading text read from site.mediaHeading"
+      pattern: "site.mediaHeading"
 ---
 
 <objective>
-Add the typed podcast/media list to the single content source, build a `MediaSection` that renders on the About page only when the list is non-empty, and prove both branches: omitted when empty (e2e, default build) and rendered-with-accessible-names when populated (vitest fixture). Ships inert (empty list) now.
+Add the typed podcast/media list AND the media heading copy to the single content source, build a `MediaSection` that renders on the About page only when the list is non-empty, and prove both branches: omitted when empty (e2e, default build) and rendered-with-accessible-names when populated (vitest fixture). Ships inert (empty list) now.
 
 Purpose: Give the site a place for founder media appearances without inventing content or leaving an empty shell, and without adding a new route that would churn the 5-route SEO/axe gates (RESEARCH Pattern 4: section on About, not a `/media` route).
-Output: `PodcastItem` + `podcasts: []` in `site.ts`, `MediaSection.svelte`, an About-page render, and two specs.
+Output: `PodcastItem` + `podcasts: []` + `mediaHeading` in `site.ts`, `MediaSection.svelte`, an About-page render, and two specs.
 </objective>
 
 <execution_context>
@@ -65,24 +70,26 @@ Output: `PodcastItem` + `podcasts: []` in `site.ts`, `MediaSection.svelte`, an A
 <interfaces>
 <!-- Contracts the executor uses directly. From 06-01 (Wave 1) and the existing repo. -->
 
-From 06-01: vitest is installed; `vitest.config.ts` uses jsdom + `$lib` alias and includes `tests/unit/**/*.spec.ts`; `pnpm test:unit` = `vitest run`. The default `playwright.config.ts` ignores `tests/unit/**`, so the vitest spec will NOT be run by Playwright.
+From 06-01: vitest is installed; `vitest.config.ts` uses jsdom + `$lib` alias and includes `tests/unit/**/*.spec.ts`; `pnpm test:unit` = `vitest run`. The default `playwright.config.ts` `testIgnore` array ignores `tests/unit/**`, so the vitest spec will NOT be run by Playwright.
 
 site.ts is `export const site = { … } as const;` and every `+page.svelte` must import `content/site` (content-source gate). Existing typed lists use the `satisfies X[]` pattern (see `services` and `social`).
 
+site.ts ownership note (Wave 2): site.ts is co-edited this wave by 06-02 and 06-03 in DISJOINT top-level keys — 06-03 adds `PodcastItem`/`podcasts`/`mediaHeading`; 06-02 adds `contactForm`/`contactSuccess`. Add ONLY the media keys here; do NOT touch the contact-form keys. If both plans run truly in parallel, serialize the site.ts edit (append the media block, leave the contact blocks to 06-02).
+
 External link convention (SocialLinks.svelte precedent): off-site URLs use a literal `href={item.url}` with `<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- … -->`. Do NOT base-resolve external media URLs.
 
-The content-source gate `check-content-source.mjs` only forbids literal `href="/…"`; `href={…}` expressions and `href="#"`/`mailto:` are allowed. It scans `+page.svelte` files for the `content/site` import (components are not required to import it, but MediaSection does anyway for its default).
+The content-source gate `check-content-source.mjs` only forbids literal `href="/…"`; `href={…}` expressions and `href="#"`/`mailto:` are allowed. It scans `+page.svelte` files for the `content/site` import (components are not required to import it, but MediaSection does anyway for its default + heading).
 </interfaces>
 </context>
 
 <tasks>
 
 <task type="auto">
-  <name>Task 1: Author RED specs + add the typed podcasts list to site.ts</name>
+  <name>Task 1: Author RED specs + add the typed podcasts list + mediaHeading to site.ts</name>
   <read_first>src/lib/content/site.ts, vitest.config.ts</read_first>
   <files>src/lib/content/site.ts, tests/media-section.spec.ts, tests/unit/media-section.spec.ts</files>
   <action>
-Add the type + empty list to `site.ts`. Place the interface beside the existing `SocialItem` interface:
+Add the type, empty list, and heading copy to `site.ts`. Place the interface beside the existing `SocialItem` interface:
 ```ts
 export interface PodcastItem {
 	title: string;
@@ -91,11 +98,12 @@ export interface PodcastItem {
 	platform?: string;
 }
 ```
-Add the empty list inside the `site` object (e.g. after `social: [ … ]`). Empty now → section self-omits; real appearances are Phase-7-adjacent, invent none:
+Add the empty list + heading inside the `site` object (e.g. after `social: [ … ]`). Empty now → section self-omits; real appearances are Phase-7-adjacent, invent none. The heading lives here (single content source — no hardcoded copy in the component). The heading text MUST contain "Media" so the specs' `/media/i` heading match holds:
 ```ts
 	// Podcast / media appearances (ENGAGE-03). MediaSection renders NOTHING while this is empty —
 	// no empty shell. Populate with real, verified appearances only.
 	podcasts: [] satisfies PodcastItem[] as PodcastItem[],
+	mediaHeading: 'Media & Podcasts',
 ```
 
 Author the two RED specs (fail until Task 2 creates the component).
@@ -152,9 +160,9 @@ pnpm check
 ```
   </action>
   <verify>
-    <automated>grep -q "interface PodcastItem" src/lib/content/site.ts && grep -q "podcasts:" src/lib/content/site.ts && grep -q "media-h" tests/media-section.spec.ts && grep -q "MediaSection" tests/unit/media-section.spec.ts && pnpm check</automated>
+    <automated>grep -q "interface PodcastItem" src/lib/content/site.ts && grep -q "podcasts:" src/lib/content/site.ts && grep -q "mediaHeading" src/lib/content/site.ts && grep -q "media-h" tests/media-section.spec.ts && grep -q "MediaSection" tests/unit/media-section.spec.ts && pnpm check</automated>
   </verify>
-  <done>`PodcastItem` + empty `podcasts` list added and type-checking; both RED specs authored (expected to fail until Task 2).</done>
+  <done>`PodcastItem` + empty `podcasts` list + `mediaHeading` added and type-checking; both RED specs authored (expected to fail until Task 2).</done>
 </task>
 
 <task type="auto" tdd="true">
@@ -162,11 +170,11 @@ pnpm check
   <read_first>src/routes/about/+page.svelte, src/lib/components/SocialLinks.svelte</read_first>
   <behavior>
     - Empty list → component renders nothing (no section.media, no #media-h) — vitest + default e2e.
-    - Populated list → renders a labelled section with each item as an accessible link + description — vitest fixture.
+    - Populated list → renders a labelled section (heading from site.mediaHeading) with each item as an accessible link + description — vitest fixture.
   </behavior>
   <files>src/lib/components/MediaSection.svelte, src/routes/about/+page.svelte</files>
   <action>
-Create `src/lib/components/MediaSection.svelte` (Svelte 5 runes; token-only; `items` prop defaults to `site.podcasts` so vitest can inject a fixture; external URLs are literal with the eslint-disable precedent):
+Create `src/lib/components/MediaSection.svelte` (Svelte 5 runes; token-only; `items` prop defaults to `site.podcasts` so vitest can inject a fixture; heading text from `site.mediaHeading` — no hardcoded copy; external URLs are literal with the eslint-disable precedent):
 ```svelte
 <script lang="ts">
 	import { site } from '$lib/content/site';
@@ -176,7 +184,7 @@ Create `src/lib/components/MediaSection.svelte` (Svelte 5 runes; token-only; `it
 
 {#if items.length}
 	<section class="media" aria-labelledby="media-h">
-		<h2 id="media-h">Media &amp; Podcasts</h2>
+		<h2 id="media-h">{site.mediaHeading}</h2>
 		<ul class="media__list">
 			{#each items as item (item.url)}
 				<li class="media__item">
@@ -228,9 +236,9 @@ pnpm exec playwright test tests/a11y.spec.ts                     # /about still 
 ```
   </action>
   <verify>
-    <automated>pnpm check && pnpm lint && pnpm test:unit && pnpm exec playwright test tests/media-section.spec.ts && pnpm exec playwright test tests/a11y.spec.ts</automated>
+    <automated>grep -q "site.mediaHeading" src/lib/components/MediaSection.svelte && pnpm check && pnpm lint && pnpm test:unit && pnpm exec playwright test tests/media-section.spec.ts && pnpm exec playwright test tests/a11y.spec.ts</automated>
   </verify>
-  <done>MediaSection self-omits on empty (About shows no media section — default e2e GREEN); vitest proves both branches; `/about/` stays axe-clean both modes; `pnpm check` + `pnpm lint` clean.</done>
+  <done>MediaSection self-omits on empty (About shows no media section — default e2e GREEN); heading text comes from `site.mediaHeading`; vitest proves both branches; `/about/` stays axe-clean both modes; `pnpm check` + `pnpm lint` clean.</done>
 </task>
 
 </tasks>
@@ -239,12 +247,14 @@ pnpm exec playwright test tests/a11y.spec.ts                     # /about still 
 - `pnpm test:unit`: MediaSection empty→nothing, populated→accessible links — GREEN.
 - `pnpm exec playwright test tests/media-section.spec.ts`: no media section on /about while empty — GREEN.
 - `pnpm exec playwright test tests/a11y.spec.ts`: /about clean both modes (no new violations).
+- `grep site.mediaHeading` in MediaSection.svelte confirms the heading is not hardcoded.
 - `pnpm check`, `pnpm lint`, `pnpm test:content`, `pnpm test:tokens`, `pnpm test:review` — GREEN.
 - No new route added → SEO/axe 5-route arrays untouched.
 </verification>
 
 <success_criteria>
-- ENGAGE-03: typed podcast list in site.ts; section omitted entirely while empty (no shell), rendered with accessible names when populated.
+- ENGAGE-03: typed podcast list + heading in site.ts; section omitted entirely while empty (no shell), rendered with accessible names when populated.
+- Media heading copy lives in site.ts (single content source), not hardcoded in the component.
 - Both data branches proven automatically (e2e omitted + vitest populated).
 - No route churn; every existing gate stays green.
 </success_criteria>
@@ -252,3 +262,4 @@ pnpm exec playwright test tests/a11y.spec.ts                     # /about still 
 <output>
 After completion, create `.planning/phases/06-engagement-surfaces/06-03-SUMMARY.md`.
 </output>
+</content>

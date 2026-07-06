@@ -44,9 +44,9 @@ must_haves:
       via: "webServer.env PUBLIC_WEB3FORMS_KEY=test-key overrides the empty .env default"
       pattern: "env:\\s*\\{[^}]*PUBLIC_WEB3FORMS_KEY"
     - from: "playwright.config.ts"
-      to: "tests/unit/**"
-      via: "testIgnore keeps Playwright from running vitest specs"
-      pattern: "testIgnore"
+      to: "tests/unit/** + tests/*.enabled.spec.ts"
+      via: "testIgnore array keeps the default (no-key) suite from running the vitest unit specs AND the enabled-only spec (which needs the dummy-key build and would fail every default run)"
+      pattern: "enabled.spec.ts"
 ---
 
 <objective>
@@ -159,12 +159,12 @@ export default defineConfig({
 });
 ```
 
-Edit the DEFAULT `playwright.config.ts`: add `testIgnore: '**/unit/**',` (just under `testDir: 'tests',`) so the default suite never tries to run the vitest unit spec that will live at `tests/unit/`. Change nothing else.
+Edit the DEFAULT `playwright.config.ts`: add `testIgnore: ['**/unit/**', '**/*.enabled.spec.ts'],` (ARRAY form, just under `testDir: 'tests',`). The default (no-key) build must ignore BOTH the vitest unit spec (`tests/unit/`) AND the enabled-only spec (`tests/contact-form.enabled.spec.ts`) — the enabled spec asserts a *visible* form that only exists in the dummy-key build, so under the default no-key build it would fail every run. Array form is mandatory (a bare string would ignore only `**/unit/**` and let the enabled spec run against the wrong build). Change nothing else.
   </action>
   <verify>
-    <automated>node -e "const p=require('./package.json').scripts; if(!p['test:unit']||!p['test:e2e:enabled']||!p['test:contrast']) process.exit(1)" && grep -q "testMatch: '\*\*/\*.enabled.spec.ts'" playwright.enabled.config.ts && grep -q "testIgnore" playwright.config.ts && grep -q "jsdom" vitest.config.ts && pnpm exec vitest --version</automated>
+    <automated>node -e "const p=require('./package.json').scripts; if(!p['test:unit']||!p['test:e2e:enabled']||!p['test:contrast']) process.exit(1)" && grep -q "testMatch: '\*\*/\*.enabled.spec.ts'" playwright.enabled.config.ts && grep -q "enabled.spec.ts" playwright.config.ts && grep -q "unit" playwright.config.ts && grep -q "jsdom" vitest.config.ts && pnpm exec vitest --version</automated>
   </verify>
-  <done>Deps installed; the three scripts exist; `vitest.config.ts`, `playwright.enabled.config.ts` exist; default `playwright.config.ts` ignores `tests/unit/**`; `pnpm exec vitest --version` prints a version.</done>
+  <done>Deps installed; the three scripts exist; `vitest.config.ts`, `playwright.enabled.config.ts` exist; default `playwright.config.ts` uses the array `testIgnore: ['**/unit/**', '**/*.enabled.spec.ts']` (ignores BOTH unit specs and the enabled-only spec); `pnpm exec vitest --version` prints a version.</done>
 </task>
 
 <task type="auto">
@@ -303,12 +303,13 @@ pnpm test:tokens
 - `pnpm exec vitest --version` resolves (toolchain installed).
 - `pnpm build` succeeds with the committed empty `.env` (inert foundation for ENGAGE-02).
 - `node scripts/check-token-contrast.mjs` passes; `pnpm test:tokens` still green.
-- Default suite unchanged: `pnpm test:e2e` still green (no new UI yet — this wave only adds infra, tokens, and config).
+- Default suite unchanged: `pnpm test:e2e` still green (no new UI yet — this wave only adds infra, tokens, and config) AND does NOT attempt the enabled-only spec (excluded via the `testIgnore` array).
 </verification>
 
 <success_criteria>
 - Committed empty `PUBLIC_WEB3FORMS_KEY` default; `.env` tracked; build green with env unset.
 - vitest + enabled-Playwright + contrast configs/scripts present and self-verifying.
+- Default `playwright.config.ts` `testIgnore` array excludes both `**/unit/**` and `**/*.enabled.spec.ts`.
 - --danger/--success/--field-border defined AAA-safe in both modes and gated computationally.
 - No regression to any existing gate.
 </success_criteria>
@@ -316,3 +317,5 @@ pnpm test:tokens
 <output>
 After completion, create `.planning/phases/06-engagement-surfaces/06-01-SUMMARY.md`.
 </output>
+</content>
+</invoke>
