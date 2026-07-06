@@ -17,6 +17,18 @@ brain — and switch instantly, with the choice remembered.** The Accessible mod
 degraded fallback; it is a first-class, gold-standard experience. If everything else fails, the
 site must remain fully usable, perceivable, and operable in Accessible mode.
 
+## Current Milestone: v1.1 Real Content & Reach
+
+**Goal:** Replace placeholder content with Eman's real words, add engagement surfaces, and cut
+over to the real domain — human-gated items cleanly separated from work that can proceed now.
+
+**Target features:**
+- Contact form (progressive enhancement over mailto; Formspree/Web3Forms, no CAPTCHA; endpoint config-driven so it ships inert until a key exists)
+- Podcast/media section (data-driven from site.ts; renders only when entries exist)
+- Real content swap (Eman-gated): bio, pull-quote, social URLs, founder title — remove the matching Accessibility-Statement known-issues entries
+- Custom-domain cutover to www.diversityincludesdisability.org (Eman-gated: registrar access + leave-Wix decision): CNAME, DNS runbook, `site.url` update, SEO gate re-run
+- Donation mechanism (PayPal/Zeffy QR) stays deferred — still gated on 501(c)(3)/fiscal-sponsor status
+
 ## Requirements
 
 ### Validated
@@ -104,4 +116,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-05 — v1.0 milestone COMPLETE (all 5 phases shipped + verified live). Open follow-ups for a future milestone: replace `[REVIEW]` placeholders (Eman's real bio, pull-quote, social URLs, founder title) and optionally the v2 items (contact form, donation/podcast).*
+*Last updated: 2026-07-06 — v1.1 "Real Content & Reach" milestone started (v1.0 archived to MILESTONES.md). Handoff to Eman drafted at Websites/Rimawi/HANDOFF-EMAN-website.md.*
