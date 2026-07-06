@@ -4,6 +4,7 @@
      pull-quote renders ONLY when a real quote is provided (undefined → nothing renders). -->
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
+	import MediaSection from '$lib/components/MediaSection.svelte';
 	import { site } from '$lib/content/site';
 	import { resolve } from '$app/paths';
 </script>
@@ -20,6 +21,8 @@
 	{#if site.about.pullQuote}
 		<blockquote class="about__quote">{site.about.pullQuote}</blockquote>
 	{/if}
+
+	<MediaSection />
 
 	<p class="about__cta">
 		<a href={resolve('/contact')}>{site.contact.ctaPhrase}</a>
