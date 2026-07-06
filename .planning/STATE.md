@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Real Content & Reach
-status: defining_requirements
-stopped_at: Milestone v1.1 started — defining requirements
+status: roadmap_complete
+stopped_at: Milestone v1.1 roadmap created (Phases 6–8) — ready to plan Phase 6
 last_updated: "2026-07-06T00:00:00.000Z"
 progress:
-  total_phases: 0
+  total_phases: 3
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -16,25 +16,30 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-07-04)
+See: .planning/PROJECT.md (updated 2026-07-06)
 
 **Core value:** A visitor can experience DID's mission and services in the mode that works for their body and brain — and switch instantly, with the choice remembered. Accessible mode is first-class, not a fallback.
-**Current focus:** Milestone v1.1 Real Content & Reach
+**Current focus:** Milestone v1.1 Real Content & Reach — Phase 6 Engagement Surfaces (buildable now)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: Phase 6 — Engagement Surfaces (not started)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-07-06 — Milestone v1.1 started (v1.0 archived to MILESTONES.md; handoff to Eman drafted)
+Status: Roadmap complete — ready to plan Phase 6
+Last activity: 2026-07-06 — v1.1 roadmap created (Phases 6–8: Engagement Surfaces → Real Content Integration → Domain Cutover; 10/10 requirements mapped)
+
+**Milestone v1.1 phase map:**
+- Phase 6 Engagement Surfaces (ENGAGE-01..03) — buildable NOW, no external input; next to plan
+- Phase 7 Real Content Integration (RCONT-01..05) — BLOCKED awaiting Eman's answers (Websites/Rimawi/HANDOFF-EMAN-website.md)
+- Phase 8 Domain Cutover (DOMAIN-01..02) — BLOCKED on registrar access + leave-Wix decision; sequenced after Phase 7
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
+- Total plans completed (v1.0): 20
 - Average duration: — min
-- Total execution time: 0 hours
+- Total execution time: — hours
 
 **By Phase:**
 
@@ -76,56 +81,42 @@ Last activity: 2026-07-06 — Milestone v1.1 started (v1.0 archived to MILESTONE
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- v1.1 organizing principle: separate buildable-now work (Phase 6) from human-gated work (Phases 7–8) so build progress never blocks on external input.
+- Contact form ships inert: endpoint is config-driven (Web3Forms/Formspree key); with no key the form is hidden and mailto stays primary — the site never shows a broken form (ENGAGE-02).
+- Podcast/media section renders only when the typed site.ts list has entries — no empty shell (ENGAGE-03).
+- Real content swap (Phase 7) is a single edit to src/lib/content/site.ts's `[REVIEW]` markers + trimming the Accessibility-Statement known-issues; do not invent content while awaiting Eman.
+- Domain cutover (Phase 8) sequenced last so the custom domain launches with real content; blocked on registrar access + leave-Wix decision.
+- Every v1.1 phase must keep v1.0 gates green: axe both modes, 3D bundle boundary (zero WebGL in Accessible), SEO meta, fail-closed CI a11y/Lighthouse gate.
 - One site, two persistent modes (not two sites) — one accessible DOM themed by `data-mode`, single content source; no drift.
 - adapter-static + base path for gh-pages — only viable path; real Pages deploy proven in Phase 1.
 - Accessible mode ships zero 3D (lazy-load Premium via dynamic `import()`) — the only hard code-split boundary.
 - Auto-select Accessible on `prefers-reduced-motion`/`prefers-contrast` — respect OS signals by default.
-- [Phase 01-foundation-deploy-proof]: paths.relative=false so every prerendered page uses absolute base-prefixed _app URLs (consistent with 404.html fallback); adapter-static + trailingSlash=always is the base-path-correct Pages recipe
-- [Phase 01-foundation-deploy-proof]: Restored canonical svelte.config.js (newer sv scaffold inlines adapter in vite.config.ts); vite.config.ts is a plain sveltekit() plugin
-- [Phase 01-foundation-deploy-proof]: Live deploy proven on real GitHub Pages: wolfwdavid/diversityincludesdisability_four public repo, Pages source=GitHub Actions, root 200 + _app chunk 200 + 404.html SPA fallback all validated under the base path
-- [Phase 02]: Node raw-hex token gate (scripts/check-no-raw-hex.mjs) replaces bash/rg for Windows/pnpm-shell robustness
-- [Phase 02]: axe suite includes wcag2aaa tag so color-contrast-enhanced machine-verifies the DS-01 AAA (>=7:1) claim
-- [Phase 02]: Mode store initializes current FROM html data-mode attribute — inline script is the single owner of priority (stored → OS → default), so the store cannot disagree (no hydration re-flip)
-- [Phase 02]: Static data-mode=accessible on <html> guarantees a themed gold-standard render with JS disabled; the inline script upgrades capable browsers pre-paint
-- [Phase 02]: e2e runs against the adapter-static preview build (pnpm build && pnpm preview), not the dev server — reliable hydration and exercises the shipped artifact
-- [Phase 02]: app.html no-flash comment must not contain %sveltekit.* placeholders — SvelteKit substitutes them inside comments too, corrupting head injection
-- [Phase 03]: CONT-06 single content source: all copy lives in src/lib/content/site.ts; [REVIEW] markers are TS comments only, enforced by check-review-markers build gate
-- [Phase 03]: Social hrefs are '#' placeholders and about.pullQuote is undefined until real values confirmed (no invented content)
-- [Phase 03]: Hero poster is abstract/branding -> decorative aria-hidden (over role=img); Phase-4 3D mounts as an absolutely-positioned island over the static poster fallback
-- [Phase 03]: ServiceCard heading level is a prop (svelte:element h${level}) -> h3 on Home, h2 on Services to keep axe heading-order valid
-- [Phase 03]: 03-03: mobile nav Escape handler lives on the wrapper enclosing both toggle button and nav (button sits outside <nav> when focused after open)
-- [Phase 03]: 03-03: aria-current via page.route.id from $app/state (base/slash-independent), omitted on inactive links; every internal link via resolve()
-- [Phase 03]: Contact CTA is a labeled mailto button with the address shown as visible text; Accessibility Statement honestly lists pending [REVIEW] items as known issues
-- [Phase 03]: 03-05: ServiceCard heading level chosen per page (level=3 on Home under an h2, level=2 on Services under the h1) to keep heading order monotonic
-- [Phase 03]: 03-05: multi-CTA pages assert visibility with .first() in e2e — a page may legitimately repeat a labelled CTA (Let's Connect appears in hero, each card, and the CTA band)
-- [Phase 03]: Phase-3 gate green: 57/57 e2e (axe wcag2aaa on 5 routes x2 modes) + all static gates + BASE_PATH build
-- [Phase 03]: Made Playwright preview port configurable (PREVIEW_PORT) after discovering the suite was reusing sibling project diversityincludesdisability_one's server on shared port 4173
-- [Phase 04]: PREM-02 boundary gate matches chunk CONTENT (regex @threlte|WebGLRenderer|three.module over built .js), not filenames — robust to hashed chunk names
-- [Phase 04]: @threlte/extras omitted (avoids OrbitControls focus-trap + chunk bloat); premium/ narrowly exempted from raw-hex gate for token-derived three.Color constants
-- [Phase 04]: PremiumHero is a three-free lazy-import boundary: import('./HeroScene.svelte') is the sole path into the three graph, so Vite code-splits WebGL out of the accessible bundle
-- [Phase 04]: Procedural drift scene (300-instance InstancedMesh + wireframe tori + point lights) on an on-demand transparent Canvas; explicit renderer.dispose()+forceContextLoss() teardown, context-loss retreats to poster (PREM-04)
-- [Phase 04]: Phase-4 gate GREEN: 64/64 e2e (7 premium-3d + 57 prior), PREM-02 boundary proven (1 premium chunk, home WebGL-free), axe wcag2aaa clean both modes with canvas present
-- [Phase 04]: Default (unseeded) mode resolves to Premium; mode-specific DOM tests must seed the mode they assert — corrected stale content-routes PREM-03 zero-canvas assertion to seed Accessible
-- [Phase 05]: SEO-01: absolute-URL SEO composed from constants (site.url+base+path), never runtime page.url — immune to static-adapter prerender pathname quirks; split validation (e2e origin+path in preview, BASE_PATH build-grep for the repo segment)
-- [Phase 05-launch-hardening]: 05-02: HeroScene eager-CSS leak was @threlte Canvas CSS (not HeroScene's own style); isolated Canvas in SceneCanvas.svelte behind a 2nd dynamic import so its CSS sits at SvelteKit find_deps depth 2, past the depth<=1 eager-hoist window — no premium scene CSS link on the accessible home, JS boundary unchanged
-- [Phase 05-launch-hardening]: 05-02: no-flash MODE-03 made deterministic with expect.poll + optional chaining (keeps waitUntil:'commit' pre-paint guarantee); OG card uses accessible-mode light tokens per plan acceptance
-- [Phase 05-launch-hardening]: 05-03: Lighthouse SEO budget excludes the 404 SPA fallback shell via assertMatrix (client-routed, HTTP 404, no per-route meta by design); a11y>=0.95 + best-practices>=0.9 still gate every page
-- [Phase 05-launch-hardening]: 05-03: lhci maxAutodiscoverUrls:0 lifts the default 5-URL cap so all 6 prerendered pages are audited (default silently dropped services/index.html); live-smoke.mjs is dependency-free Node 24 fetch with retry-backoff
-- [Phase 05-launch-hardening]: CI verify job (axe both modes + lhci --no-sandbox) fail-closed gates build+deploy; guarded deploy1/deploy2 self-heals transient Pages failures; post-deploy live-smoke via nick-fields/retry
-- [Phase 05]: test:launch aggregates every Phase-5 gate; build:base wrapper sets BASE_PATH in Node to avoid shell/OS env fragility
+- [Phase 01]: paths.relative=false so every prerendered page uses absolute base-prefixed _app URLs; adapter-static + trailingSlash=always is the base-path-correct Pages recipe.
+- [Phase 01]: Live deploy proven on real GitHub Pages under the base path (root 200 + _app chunk 200 + 404.html SPA fallback validated).
+- [Phase 02]: Node raw-hex token gate replaces bash/rg for Windows/pnpm-shell robustness; axe suite includes wcag2aaa tag to machine-verify DS-01 AAA (>=7:1).
+- [Phase 02]: Mode store initializes FROM html data-mode; inline script is the single owner of priority (stored → OS → default), so no hydration re-flip.
+- [Phase 02]: e2e runs against the adapter-static preview build (build && preview), not the dev server — exercises the shipped artifact.
+- [Phase 03]: CONT-06 single content source — all copy in src/lib/content/site.ts; [REVIEW] markers are TS comments enforced by check-review-markers build gate.
+- [Phase 03]: Social hrefs are '#' placeholders and about.pullQuote is undefined until real values confirmed (no invented content) — these are the Phase-7 targets.
+- [Phase 03]: Contact CTA is a labeled mailto button with the address shown as visible text; Accessibility Statement honestly lists pending [REVIEW] items as known issues — Phase 7 trims these.
+- [Phase 04]: PREM-02 boundary gate matches chunk CONTENT (@threlte|WebGLRenderer|three.module over built .js), robust to hashed chunk names; premium/ is the sole path into the three graph.
+- [Phase 05]: SEO absolute-URL composed from constants (site.url+base+path), never runtime page.url; split validation (e2e origin+path in preview, BASE_PATH build-grep). site.url is the Phase-8 cutover target.
+- [Phase 05]: CI verify job (axe both modes + lhci) fail-closed gates build+deploy; guarded deploy retry self-heals transient Pages failures; post-deploy live-smoke. test:launch aggregates every gate.
 
 ### Pending Todos
 
-None yet.
+- Phase 6: pick the form backend (Web3Forms vs Formspree) during planning; keep endpoint config-driven so it ships inert without a key.
+- Phase 7: awaiting Eman's four answers (bio, pull-quote, social URLs, founder title) per Websites/Rimawi/HANDOFF-EMAN-website.md.
+- Phase 8: awaiting registrar access + leave-Wix decision before cutover.
 
 ### Blockers/Concerns
 
-- [Phase 4] Premium 3D is MEDIUM-confidence per research (Threlte single-canvas/disposal/context-loss + hero scene design). Run `/gsd:research-phase 4` before planning it.
-- [Phase 1/2] DID blue/orange contrast token values must be run through a contrast checker and fixed in the token contract early — HIGH recovery cost if deferred.
+- [Phase 7] BLOCKED: requires Eman's real content answers (Websites/Rimawi/HANDOFF-EMAN-website.md). Do not plan/execute until answers arrive; invent no content in the interim.
+- [Phase 8] BLOCKED: requires registrar access to point DNS + the decision to leave Wix. Sequenced after Phase 7 so the domain launches with real content.
 - Never commit PII/EIN/creds from the private Notion source; this folder sits in a git tree with public remotes.
 
 ## Session Continuity
 
-Last session: 2026-07-05T12:26:58.582Z
-Stopped at: Completed 05-05-PLAN.md — Phase 5 launched
+Last session: 2026-07-06T00:00:00.000Z
+Stopped at: v1.1 roadmap created (Phases 6–8) — ready to `/gsd:plan-phase 6`
 Resume file: None

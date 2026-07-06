@@ -114,6 +114,8 @@ Explicitly excluded. Documented to prevent scope creep.
 
 Which phases cover which requirements. Populated during roadmap creation.
 
+### v1.0 — Dual-Mode Site (Phases 1–5)
+
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | MODE-01 | Phase 2 | Complete |
@@ -149,13 +151,28 @@ Which phases cover which requirements. Populated during roadmap creation.
 | SEO-01 | Phase 5 | Complete |
 | QA-01 | Phase 5 | Complete |
 
+### v1.1 — Real Content & Reach (Phases 6–8)
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| ENGAGE-01 | Phase 6 | Pending |
+| ENGAGE-02 | Phase 6 | Pending |
+| ENGAGE-03 | Phase 6 | Pending |
+| RCONT-01 | Phase 7 | Pending (gated on Eman) |
+| RCONT-02 | Phase 7 | Pending (gated on Eman) |
+| RCONT-03 | Phase 7 | Pending (gated on Eman) |
+| RCONT-04 | Phase 7 | Pending (gated on Eman) |
+| RCONT-05 | Phase 7 | Pending (gated on Eman) |
+| DOMAIN-01 | Phase 8 | Pending (gated on registrar + leave-Wix) |
+| DOMAIN-02 | Phase 8 | Pending (gated on registrar + leave-Wix) |
+
 **Coverage:**
-- v1 requirements: 32 total (enumerated; the earlier "30" figure undercounted — A11Y has 8 and CONT has 7, and SEO-01/QA-01 are two distinct reqs)
-- Mapped to phases: 32/32 (100%)
+- v1.0 requirements: 32 total, mapped 32/32 (100%), all Complete
+- v1.1 requirements: 10 total (ENGAGE ×3, RCONT ×5, DOMAIN ×2), mapped 10/10 (100%)
 - Unmapped: 0
 
-**Per-phase counts:** Phase 1 = 3, Phase 2 = 7, Phase 3 = 16, Phase 4 = 3, Phase 5 = 3.
+**Per-phase counts:** Phase 1 = 3, Phase 2 = 7, Phase 3 = 16, Phase 4 = 3, Phase 5 = 3, Phase 6 = 3, Phase 7 = 5, Phase 8 = 2.
 
 ---
 *Requirements defined: 2026-07-04*
-*Last updated: 2026-07-04 after roadmap creation (traceability mapped, 32 v1 requirements)*
+*Last updated: 2026-07-06 after v1.1 roadmap creation (10 v1.1 requirements mapped to Phases 6–8)*

@@ -12,6 +12,12 @@ as a first-class render **before any 3D exists**, then layer Premium 3D behind a
 gate, and live-URL verification at launch. Accessible mode is the reference render and always
 wins; 3D is opt-in and ships zero WebGL to Accessible mode.
 
+**Milestone v1.0 "Dual-Mode Site" shipped 2026-07-05** (Phases 1–5, 32/32 requirements — see
+MILESTONES.md). **Milestone v1.1 "Real Content & Reach"** (Phases 6–8) now replaces placeholder
+content with Eman's real words, adds engagement surfaces (contact form, podcast section), and
+cuts over to the real custom domain — with human-gated work cleanly separated from build work
+that can proceed now.
+
 ## Phases
 
 **Phase Numbering:**
@@ -20,11 +26,19 @@ wins; 3D is opt-in and ships zero WebGL to Accessible mode.
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Deploy Proof** - Scaffold the static SvelteKit app and prove a hello-world live on the real Pages URL under the base path
-- [ ] **Phase 2: Mode System & Design Tokens** - Persistent, accessible mode toggle with no-flash pre-paint theming and a WCAG-verified two-mode token contract
-- [ ] **Phase 3: Accessible Experience** - All four pages of faithful DID content as one semantic DOM, gold-standard accessible, shipping zero WebGL
-- [ ] **Phase 4: Premium 3D** - A tasteful Threlte hero loaded only on demand behind a dynamic import boundary, with graceful WebGL failure handling
+### Milestone v1.0 — Dual-Mode Site (SHIPPED)
+
+- [x] **Phase 1: Foundation & Deploy Proof** - Scaffold the static SvelteKit app and prove a hello-world live on the real Pages URL under the base path
+- [x] **Phase 2: Mode System & Design Tokens** - Persistent, accessible mode toggle with no-flash pre-paint theming and a WCAG-verified two-mode token contract
+- [x] **Phase 3: Accessible Experience** - All four pages of faithful DID content as one semantic DOM, gold-standard accessible, shipping zero WebGL
+- [x] **Phase 4: Premium 3D** - A tasteful Threlte hero loaded only on demand behind a dynamic import boundary, with graceful WebGL failure handling
 - [x] **Phase 5: Launch Hardening** - SEO/social meta, a blocking CI accessibility gate, and live verification of the finished site on GitHub Pages
+
+### Milestone v1.1 — Real Content & Reach (CURRENT)
+
+- [ ] **Phase 6: Engagement Surfaces** - Accessible progressive-enhancement contact form and a data-driven podcast/media section, both shipping inert until configured, with all v1.0 gates kept green
+- [ ] **Phase 7: Real Content Integration** - Swap Eman's real bio, pull-quote, social URLs, and founder title into the single content source and trim the resolved Accessibility-Statement known-issues (GATED on Eman's answers)
+- [ ] **Phase 8: Domain Cutover** - Serve the site at www.diversityincludesdisability.org over HTTPS with all absolute URLs updated and the SEO gate + live smoke re-run green (GATED on registrar access + leave-Wix decision)
 
 ## Phase Details
 
@@ -127,15 +141,76 @@ Plans:
 - [x] 05-04-ci-workflow-gate-and-retry-PLAN.md — deploy.yml verify(axe+lhci)->build->deploy(guarded retry)->smoke + check-ci-gate (QA-01, DEPLOY-04, follow-up 1) (wave 3)
 - [x] 05-05-regression-and-launch-verify-PLAN.md — aggregate test:launch green + push + live CI verify + human launch check (SEO-01, QA-01, DEPLOY-04) (wave 4)
 
+---
+
+## Milestone v1.1 — Real Content & Reach
+
+Phases 6–8 continue the numbering from v1.0 (which ended at Phase 5). The organizing principle
+is a clean split between **buildable-now** work (Phase 6, no external input) and **human-gated**
+work (Phases 7–8, blocked on Eman's answers and registrar/leave-Wix decisions). Every v1.1 phase
+must keep the v1.0 launch gates green: axe zero violations in both modes, the 3D bundle boundary
+(zero WebGL in Accessible), SEO meta correctness, and the fail-closed CI accessibility/Lighthouse
+gate.
+
+### Phase 6: Engagement Surfaces
+**Goal**: Visitors gain two new ways to engage — an accessible, progressively-enhanced contact
+form and a data-driven podcast/media section — both built entirely from information already in
+hand (no external input), shipping inert until configured, and regressing none of the v1.0
+accessibility, bundle-boundary, SEO, or CI gates.
+**Depends on**: Phase 5 (built on the shipped v1.0 site)
+**Requirements**: ENGAGE-01, ENGAGE-02, ENGAGE-03
+**Success Criteria** (what must be TRUE):
+  1. A visitor can complete and submit an accessible on-page contact form as a progressive enhancement over the existing mailto — visible labels, inline validation on blur, error messages with recovery guidance, focus moved to the first error, and no CAPTCHA.
+  2. With no form endpoint key configured, the contact page shows no broken form — the form is hidden and the labeled `mailto:emanrimawi@gmail.com` remains the primary contact method.
+  3. A podcast/media section renders from a typed list in `site.ts` (title, description, link, accessible names) and is omitted entirely — no empty shell — while that list is empty.
+  4. All v1.0 gates stay green with the new surfaces present: axe reports zero violations in both modes, no `three`/WebGL leaks into the Accessible bundle, SEO/OG meta remain correct, and the CI accessibility + Lighthouse gate passes.
+**Plans**: TBD
+
+### Phase 7: Real Content Integration (GATED — awaiting Eman)
+**Goal**: The four `[REVIEW]` content placeholders are replaced with Eman's confirmed real words
+and links from a single edit to the content source, and the Accessibility Statement's known-issues
+list is trimmed to remove each now-resolved item — turning the honest "pending" disclosures into
+shipped content.
+**Depends on**: Phase 6
+**Blocked on**: Eman's answers (bio, pull-quote, social URLs, founder title) per
+`Websites/Rimawi/HANDOFF-EMAN-website.md`. Do not plan/execute until answers arrive. No content is
+invented in the interim; placeholders stay disclosed in the Accessibility Statement.
+**Requirements**: RCONT-01, RCONT-02, RCONT-03, RCONT-04, RCONT-05
+**Success Criteria** (what must be TRUE):
+  1. The About page shows Eman's real biography and no `[REVIEW]` scaffold remains anywhere in the built site (the review-marker gate is clean for the bio).
+  2. Her real pull-quote renders on the About page — or the quote block stays cleanly omitted if she declines — with no invented content.
+  3. Every social link points to a real profile URL; no `href="#"` placeholder links remain.
+  4. The founder title reflects her confirmed wording (replacing the placeholder "Founder & Lead Consultant").
+  5. The Accessibility Statement's known-issues list no longer lists any resolved placeholder item, and all v1.0 gates (axe both modes, SEO, CI) stay green after the content swap.
+**Plans**: TBD
+
+### Phase 8: Domain Cutover (GATED — registrar access + leave-Wix decision)
+**Goal**: The finished, real-content site is served at its own custom domain over valid HTTPS,
+with every absolute URL updated to the new domain and the SEO build gate plus live smoke re-run
+green against it — completing the "reach" half of the milestone by launching the real domain with
+real content.
+**Depends on**: Phase 7 (launch the real domain once real content is in place)
+**Blocked on**: registrar access to point DNS + the decision to leave Wix. Sequenced last so the
+custom domain goes live with real content, not placeholders.
+**Requirements**: DOMAIN-01, DOMAIN-02
+**Success Criteria** (what must be TRUE):
+  1. `https://www.diversityincludesdisability.org/` serves the site over valid HTTPS via the GitHub Pages custom domain (CNAME file + DNS records), with a runbook documented for Eman's registrar.
+  2. `site.url` and all absolute SEO/OG/canonical URLs point at the new domain — no `github.io` URLs remain in canonical or OG/Twitter tags.
+  3. The SEO build gate and the live smoke test re-run green against the new domain, including a deep-link hard refresh resolving via the SPA fallback.
+**Plans**: TBD
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Deploy Proof | 0/TBD | Not started | - |
-| 2. Mode System & Design Tokens | 0/TBD | Not started | - |
+| 1. Foundation & Deploy Proof | 2/2 | Complete | 2026-07-05 |
+| 2. Mode System & Design Tokens | 3/3 | Complete | 2026-07-05 |
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
-| 4. Premium 3D | 0/3 | Planned | - |
+| 4. Premium 3D | 3/3 | Complete | 2026-07-05 |
 | 5. Launch Hardening | 5/5 | Complete | 2026-07-05 |
+| 6. Engagement Surfaces | 0/TBD | Not started | - |
+| 7. Real Content Integration | 0/TBD | Blocked (awaiting Eman) | - |
+| 8. Domain Cutover | 0/TBD | Blocked (registrar + leave-Wix) | - |
