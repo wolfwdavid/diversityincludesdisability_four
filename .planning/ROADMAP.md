@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### Milestone v1.1 — Real Content & Reach (CURRENT)
 
-- [ ] **Phase 6: Engagement Surfaces** - Accessible progressive-enhancement contact form and a data-driven podcast/media section, both shipping inert until configured, with all v1.0 gates kept green
+- [x] **Phase 6: Engagement Surfaces** - Accessible progressive-enhancement contact form and a data-driven podcast/media section, both shipping inert until configured, with all v1.0 gates kept green (completed 2026-07-06)
 - [ ] **Phase 7: Real Content Integration** - Swap Eman's real bio, pull-quote, social URLs, and founder title into the single content source and trim the resolved Accessibility-Statement known-issues (GATED on Eman's answers)
 - [ ] **Phase 8: Domain Cutover** - Serve the site at www.diversityincludesdisability.org over HTTPS with all absolute URLs updated and the SEO gate + live smoke re-run green (GATED on registrar access + leave-Wix decision)
 
@@ -215,6 +215,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
 | 4. Premium 3D | 3/3 | Complete | 2026-07-05 |
 | 5. Launch Hardening | 5/5 | Complete | 2026-07-05 |
-| 6. Engagement Surfaces | 0/4 | Not started | - |
+| 6. Engagement Surfaces | 4/4 | Complete   | 2026-07-06 |
 | 7. Real Content Integration | 0/TBD | Blocked (awaiting Eman) | - |
 | 8. Domain Cutover | 0/TBD | Blocked (registrar + leave-Wix) | - |
