@@ -31,6 +31,12 @@ jobs:
         run: pnpm test:e2e
       - name: Lighthouse budgets (base-less build/)
         run: pnpm exec lhci autorun --collect.chromeFlags="--no-sandbox"
+      # Order matters: these run AFTER lhci. test:e2e:enabled rebuilds build/ with the dummy key,
+      # and lhci serves staticDistDir='build' — so the enabled suite must never precede Lighthouse.
+      - name: Component unit tests (vitest)
+        run: pnpm test:unit
+      - name: Enabled contact-form e2e (dummy key, network stubbed)
+        run: pnpm test:e2e:enabled
 
   build:
     needs: verify

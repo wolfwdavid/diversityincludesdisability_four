@@ -30,8 +30,8 @@
 		"lhci": "lhci autorun",
 		"smoke": "node scripts/live-smoke.mjs",
 		"build:base": "node scripts/build-base.mjs",
-		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:content && pnpm build && pnpm test:split && pnpm test:review && pnpm test:e2e",
-		"test:launch": "pnpm test && node scripts/check-ci-gate.mjs && pnpm exec lhci autorun && pnpm build:base && node scripts/check-seo-meta.mjs"
+		"test": "pnpm check && pnpm lint && pnpm test:tokens && pnpm test:contrast && pnpm test:content && pnpm build && pnpm test:split && pnpm test:review && pnpm test:e2e && pnpm test:unit",
+		"test:launch": "pnpm test && node scripts/check-ci-gate.mjs && pnpm exec lhci autorun && pnpm build:base && node scripts/check-seo-meta.mjs && pnpm test:e2e:enabled"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "4.12.1",

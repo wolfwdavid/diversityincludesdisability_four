@@ -23,4 +23,28 @@ if (fails.length) {
 	console.error('CI GATE FAIL: deploy.yml missing:\n- ' + fails.join('\n- '));
 	process.exit(1);
 }
-console.log('CI GATE OK: verify(axe+lhci) -> build -> deploy(retry) -> smoke all present');
+
+// Phase-6 ordering invariant (RESEARCH Pitfall 6 / 06-04): the enabled contact-form suite
+// rebuilds build/ with the dummy PUBLIC_WEB3FORMS_KEY, and lhci serves staticDistDir='build'.
+// So `pnpm test:e2e:enabled` MUST run strictly AFTER `lhci autorun` in the verify job, or
+// Lighthouse would silently audit the dummy-key build. Assert presence + index order.
+const lhciIdx = wf.indexOf('lhci autorun');
+const enabledIdx = wf.indexOf('pnpm test:e2e:enabled');
+const unitIdx = wf.indexOf('pnpm test:unit');
+if (unitIdx < 0 || enabledIdx < 0) {
+	console.error(
+		'CI GATE FAIL: verify job must run both `pnpm test:unit` and `pnpm test:e2e:enabled`.'
+	);
+	process.exit(1);
+}
+if (enabledIdx < lhciIdx) {
+	console.error(
+		'CI GATE FAIL: `pnpm test:e2e:enabled` must appear AFTER `lhci autorun` — the enabled ' +
+			'suite rebuilds build/ with the dummy key and would pollute the Lighthouse audit.'
+	);
+	process.exit(1);
+}
+
+console.log(
+	'CI GATE OK: verify(axe+lhci -> unit -> enabled) -> build -> deploy(retry) -> smoke all present'
+);
