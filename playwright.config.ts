@@ -9,6 +9,11 @@ const ORIGIN = `http://localhost:${PORT}`;
 
 export default defineConfig({
 	testDir: 'tests',
+	// The default (no-key) build must skip BOTH the vitest unit specs (tests/unit/, run by vitest,
+	// not Playwright) AND the enabled-only spec, which asserts a VISIBLE form that exists only in the
+	// dummy-key build (playwright.enabled.config.ts) and would fail every default run. Array form is
+	// mandatory — a bare string would ignore only the first glob and let the enabled spec run here.
+	testIgnore: ['**/unit/**', '**/*.enabled.spec.ts'],
 	timeout: 30_000,
 	fullyParallel: true,
 	// Cap workers under CI to reduce runner contention on timing-sensitive tests (belt-and-suspenders
