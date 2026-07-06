@@ -1,15 +1,15 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: Real Content & Reach
-status: roadmap_complete
-stopped_at: Milestone v1.1 roadmap created (Phases 6–8) — ready to plan Phase 6
-last_updated: "2026-07-06T00:00:00.000Z"
+milestone: v1.0
+milestone_name: — Dual-Mode Site
+status: unknown
+stopped_at: Completed 06-01-PLAN.md (harness + inert env + engagement tokens)
+last_updated: "2026-07-06T10:05:57.400Z"
 progress:
-  total_phases: 3
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_phases: 6
+  completed_phases: 5
+  total_plans: 24
+  completed_plans: 21
 ---
 
 # Project State
@@ -19,19 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-06)
 
 **Core value:** A visitor can experience DID's mission and services in the mode that works for their body and brain — and switch instantly, with the choice remembered. Accessible mode is first-class, not a fallback.
-**Current focus:** Milestone v1.1 Real Content & Reach — Phase 6 Engagement Surfaces (buildable now)
+**Current focus:** Phase 06 — engagement-surfaces
 
 ## Current Position
 
-Phase: Phase 6 — Engagement Surfaces (not started)
-Plan: —
-Status: Roadmap complete — ready to plan Phase 6
-Last activity: 2026-07-06 — v1.1 roadmap created (Phases 6–8: Engagement Surfaces → Real Content Integration → Domain Cutover; 10/10 requirements mapped)
-
-**Milestone v1.1 phase map:**
-- Phase 6 Engagement Surfaces (ENGAGE-01..03) — buildable NOW, no external input; next to plan
-- Phase 7 Real Content Integration (RCONT-01..05) — BLOCKED awaiting Eman's answers (Websites/Rimawi/HANDOFF-EMAN-website.md)
-- Phase 8 Domain Cutover (DOMAIN-01..02) — BLOCKED on registrar access + leave-Wix decision; sequenced after Phase 7
+Phase: 06 (engagement-surfaces) — EXECUTING
+Plan: 2 of 4
 
 ## Performance Metrics
 
@@ -73,6 +66,7 @@ Last activity: 2026-07-06 — v1.1 roadmap created (Phases 6–8: Engagement Sur
 | Phase 05-launch-hardening P03 | 31 | 2 tasks | 3 files |
 | Phase 05-launch-hardening P04 | 12min | 2 tasks | 3 files |
 | Phase 05 P05 | 44 | 3 tasks | 7 files |
+| Phase 06 P01 | 18 | 3 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -102,6 +96,8 @@ Recent decisions affecting current work:
 - [Phase 04]: PREM-02 boundary gate matches chunk CONTENT (@threlte|WebGLRenderer|three.module over built .js), robust to hashed chunk names; premium/ is the sole path into the three graph.
 - [Phase 05]: SEO absolute-URL composed from constants (site.url+base+path), never runtime page.url; split validation (e2e origin+path in preview, BASE_PATH build-grep). site.url is the Phase-8 cutover target.
 - [Phase 05]: CI verify job (axe both modes + lhci) fail-closed gates build+deploy; guarded deploy retry self-heals transient Pages failures; post-deploy live-smoke. test:launch aggregates every gate.
+- [Phase 06]: Contact endpoint ships inert via $env/static/public + a committed empty .env default (PUBLIC_WEB3FORMS_KEY=""); process.env/Actions Variable overrides to enable — build stays green with the key unset.
+- [Phase 06]: Default vs enabled Playwright split: default config testIgnore array excludes tests/unit + *.enabled.spec.ts; enabled config builds with a dummy key on an isolated port for the visible-form specs.
 
 ### Pending Todos
 
@@ -117,6 +113,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-07-06T00:00:00.000Z
-Stopped at: v1.1 roadmap created (Phases 6–8) — ready to `/gsd:plan-phase 6`
+Last session: 2026-07-06T10:05:57.393Z
+Stopped at: Completed 06-01-PLAN.md (harness + inert env + engagement tokens)
 Resume file: None

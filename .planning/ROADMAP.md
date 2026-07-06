@@ -165,7 +165,7 @@ accessibility, bundle-boundary, SEO, or CI gates.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 06-01-test-harness-inert-env-tokens-PLAN.md — Install vitest + enabled-Playwright harness, commit inert PUBLIC_WEB3FORMS_KEY default, add AAA-safe --danger/--success/--field-border tokens with a computed contrast gate (wave 1)
+- [x] 06-01-test-harness-inert-env-tokens-PLAN.md — Install vitest + enabled-Playwright harness, commit inert PUBLIC_WEB3FORMS_KEY default, add AAA-safe --danger/--success/--field-border tokens with a computed contrast gate (wave 1)
 - [ ] 06-02-contact-form-and-success-page-PLAN.md — Accessible Svelte 5 progressive-enhancement ContactForm gated on the key (hidden without it), branded noindex /contact/success/ landing, default+enabled e2e (wave 2)
 - [ ] 06-03-media-section-and-about-PLAN.md — Typed PodcastItem list in site.ts, self-omitting MediaSection on About, default e2e (omitted) + vitest (populated) branch tests (wave 2)
 - [ ] 06-04-integration-drive-green-PLAN.md — Wire unit+enabled+contrast into test/test:launch aggregates + CI verify job, drive full phase gate green with BASE_PATH build (wave 3)
