@@ -32,6 +32,11 @@
 	--on-primary: #ffffff;
 	--accent: #9a3412;
 	--on-accent: #ffffff;
+	/* engagement tokens (Phase 6): --danger/--success are TEXT → ≥7:1 on --bg (#fff, AAA);
+	   --field-border is a non-text UI boundary (WCAG 1.4.11) → ≥3:1. Gated by check-token-contrast.mjs. */
+	--danger: #9a3412;
+	--success: #1b5e20;
+	--field-border: #565f6b;
 	--focus-ring: #08427a;
 	--shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
 	--glow: none;
@@ -58,6 +63,11 @@
 	--on-primary: #0a0e14;
 	--accent: #ff9e5e;
 	--on-accent: #0a0e14;
+	/* engagement tokens (Phase 6): --danger/--success are TEXT → ≥7:1 on --bg (#0a0e14, AAA);
+	   --field-border is a non-text UI boundary (WCAG 1.4.11) → ≥3:1. Gated by check-token-contrast.mjs. */
+	--danger: #ff9d8a;
+	--success: #7ee0a0;
+	--field-border: #8a97a8;
 	--focus-ring: #6fb4ff;
 	--shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 	--glow: 0 0 24px rgba(111, 180, 255, 0.35);
