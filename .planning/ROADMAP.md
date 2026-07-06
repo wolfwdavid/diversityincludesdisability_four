@@ -162,7 +162,13 @@ accessibility, bundle-boundary, SEO, or CI gates.
   2. With no form endpoint key configured, the contact page shows no broken form — the form is hidden and the labeled `mailto:emanrimawi@gmail.com` remains the primary contact method.
   3. A podcast/media section renders from a typed list in `site.ts` (title, description, link, accessible names) and is omitted entirely — no empty shell — while that list is empty.
   4. All v1.0 gates stay green with the new surfaces present: axe reports zero violations in both modes, no `three`/WebGL leaks into the Accessible bundle, SEO/OG meta remain correct, and the CI accessibility + Lighthouse gate passes.
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 06-01-test-harness-inert-env-tokens-PLAN.md — Install vitest + enabled-Playwright harness, commit inert PUBLIC_WEB3FORMS_KEY default, add AAA-safe --danger/--success/--field-border tokens with a computed contrast gate (wave 1)
+- [ ] 06-02-contact-form-and-success-page-PLAN.md — Accessible Svelte 5 progressive-enhancement ContactForm gated on the key (hidden without it), branded noindex /contact/success/ landing, default+enabled e2e (wave 2)
+- [ ] 06-03-media-section-and-about-PLAN.md — Typed PodcastItem list in site.ts, self-omitting MediaSection on About, default e2e (omitted) + vitest (populated) branch tests (wave 2)
+- [ ] 06-04-integration-drive-green-PLAN.md — Wire unit+enabled+contrast into test/test:launch aggregates + CI verify job, drive full phase gate green with BASE_PATH build (wave 3)
 
 ### Phase 7: Real Content Integration (GATED — awaiting Eman)
 **Goal**: The four `[REVIEW]` content placeholders are replaced with Eman's confirmed real words
@@ -209,6 +215,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 3. Accessible Experience | 7/7 | Complete | 2026-07-05 |
 | 4. Premium 3D | 3/3 | Complete | 2026-07-05 |
 | 5. Launch Hardening | 5/5 | Complete | 2026-07-05 |
-| 6. Engagement Surfaces | 0/TBD | Not started | - |
+| 6. Engagement Surfaces | 0/4 | Not started | - |
 | 7. Real Content Integration | 0/TBD | Blocked (awaiting Eman) | - |
 | 8. Domain Cutover | 0/TBD | Blocked (registrar + leave-Wix) | - |
