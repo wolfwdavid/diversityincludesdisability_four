@@ -112,6 +112,36 @@ export const site = {
 	] satisfies ServiceItem[],
 	contactIntro:
 		'Reach out about trainings, consulting, modeling, or speaking engagements — or just to start a conversation about building disability equity into your work.',
+	// Contact form copy (ENGAGE-01). Single source for every label/error/status string so the
+	// component hardcodes none. Ships with the inert form (06-01) — visible only when the key is set.
+	contactForm: {
+		heading: 'Send a message',
+		nameLabel: 'Your name',
+		emailLabel: 'Your email',
+		messageLabel: 'Your message',
+		honeypotLabel: 'Leave this field empty',
+		submit: 'Send message',
+		sending: 'Sending…',
+		errors: {
+			name: 'Enter your name.',
+			email: 'Enter a valid email address.',
+			message: 'Enter a message of at least 10 characters.'
+		},
+		status: {
+			sending: 'Sending your message…',
+			ok: 'Message sent — thank you.',
+			error: 'Something went wrong.',
+			retry: 'Retry'
+		}
+	},
+	// No-JS success-landing prose (Web3Forms redirect target).
+	contactSuccess: {
+		title: 'Message sent',
+		heading: 'Message sent',
+		lead: 'Thank you for reaching out.',
+		mailtoPrefix: 'Prefer email?',
+		back: 'Back to Contact'
+	},
 	social: [
 		{
 			name: 'Facebook',

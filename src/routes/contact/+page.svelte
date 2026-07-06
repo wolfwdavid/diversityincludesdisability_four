@@ -3,9 +3,12 @@
      mailto link text is real words ("Email Eman Rimawi"), never a bare icon, and the address is also
      shown as visible text nearby so the accessible name is unambiguous. -->
 <script lang="ts">
+	import { PUBLIC_WEB3FORMS_KEY } from '$env/static/public';
 	import { site } from '$lib/content/site';
 	import Seo from '$lib/components/Seo.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import ContactForm from '$lib/components/ContactForm.svelte';
+	const formEnabled = PUBLIC_WEB3FORMS_KEY.length > 0; // '' → false → inert (ENGAGE-02)
 </script>
 
 <Seo title={site.seo.contact.title} description={site.seo.contact.description} path="/contact/" />
@@ -18,6 +21,13 @@
 		<a class="contact__mailto" href={`mailto:${site.contact.email}`}>Email {site.founder}</a>
 		<span class="contact__address">{site.contact.email}</span>
 	</p>
+
+	{#if formEnabled}
+		<section class="contact__form" aria-labelledby="contact-form-h">
+			<h2 id="contact-form-h">{site.contactForm.heading}</h2>
+			<ContactForm accessKey={PUBLIC_WEB3FORMS_KEY} />
+		</section>
+	{/if}
 
 	<h2 class="contact__social-heading">Follow Diversity Includes Disability</h2>
 	<SocialLinks />
@@ -62,6 +72,13 @@
 	.contact__address {
 		color: var(--text-muted);
 		font-size: var(--fs-lg);
+	}
+	.contact__form {
+		margin: 0 0 var(--space-7);
+	}
+	.contact__form h2 {
+		font-size: var(--fs-h2);
+		margin: 0 0 var(--space-4);
 	}
 	.contact__social-heading {
 		font-size: var(--fs-h2);
